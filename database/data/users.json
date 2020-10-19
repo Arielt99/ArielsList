@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Ariel Thibault",
+        "email": "arielthibault@yahoo.fr",
+        "password": "Password123456",
+        "default_city": 1
+    },
+    {
+        "name": "Test",
+        "email": "email2test@yahoo.fr",
+        "password": "Password2test",
+        "default_city": 1
+    }
+]
