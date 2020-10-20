@@ -3513,6 +3513,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -27074,37 +27076,42 @@ var render = function() {
     [
       _vm._v(" "),
       _c("div", { staticClass: "py-12" }, [
-        _c("div", { staticClass: "max-w-7xl mx-auto sm:px-6 lg:px-8" }, [
+        _c("div", { staticClass: "max-w-7xl x-auto sm:px-6 lg:px-8" }, [
           _c(
             "div",
             {
               staticClass:
-                "grid grid-flow-col p-6 bg-white overflow-hidden shadow-xl sm:rounded-lg"
+                "flex flex-col p-6 bg-white overflow-hidden shadow-xl sm:rounded-lg"
             },
             _vm._l(_vm.categories, function(category) {
-              return _c(
-                "div",
-                { key: category.id },
-                [
-                  _c(
-                    "h3",
-                    {
-                      staticClass:
-                        " w-max-content text-2xl cursor-pointer font-bold"
-                    },
-                    [_vm._v(_vm._s(category.name))]
-                  ),
-                  _vm._v(" "),
+              return _c("div", { key: category.id }, [
+                _c(
+                  "h3",
+                  {
+                    staticClass:
+                      "h-15 flex text-center justify-center items-center w-max-content text-2xl cursor-pointer font-bold"
+                  },
+                  [_vm._v(_vm._s(category.name))]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "grid grid-cols-2 " },
                   _vm._l(category.subcategories, function(subcategory) {
-                    return _c("ul", { key: subcategory.id }, [
-                      _c("li", { staticClass: " w-auto cursor-pointer" }, [
-                        _vm._v(_vm._s(subcategory.name))
-                      ])
+                    return _c("div", { key: subcategory.id }, [
+                      _c(
+                        "p",
+                        {
+                          staticClass:
+                            "h-8 flex justify-center items-center w-auto cursor-pointer"
+                        },
+                        [_vm._v(_vm._s(subcategory.name))]
+                      )
                     ])
-                  })
-                ],
-                2
-              )
+                  }),
+                  0
+                )
+              ])
             }),
             0
           )
