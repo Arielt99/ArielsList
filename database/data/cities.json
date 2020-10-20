@@ -1,0 +1,58 @@
+[
+    {
+        "name": "Paris",
+        "postal_code": "75000"
+    },
+    {
+        "name": "Nantes",
+        "postal_code": "44000"
+    },
+    {
+        "name": "Marseille",
+        "postal_code": "13000"
+    },
+    {
+        "name": "Toulouse",
+        "postal_code": "31000"
+    },
+    {
+        "name": "Nice",
+        "postal_code": "06000"
+    },
+    {
+        "name": "Montpellier",
+        "postal_code": "34000"
+    },
+    {
+        "name": "Bordeaux",
+        "postal_code": "33000"
+    },
+    {
+        "name": "Lille",
+        "postal_code": "59000"
+    },
+    {
+        "name": "Rennes",
+        "postal_code": "35000"
+    },
+    {
+        "name": "Reims",
+        "postal_code": "51100"
+    },
+    {
+        "name": "Saint-Étienne",
+        "postal_code": "42000"
+    },
+    {
+        "name": "Toulon",
+        "postal_code": "83000"
+    },
+    {
+        "name": "Le Havre",
+        "postal_code": "76600"
+    },
+    {
+        "name": "Grenoble",
+        "postal_code": "38000"
+    }
+]
