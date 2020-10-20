@@ -12,7 +12,7 @@ class CitiesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function __invoke()
+    public function list()
     {
         $cities = Cities::all();
         return Inertia::render('Home', [

@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\CitiesController;
+use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\UserDefaultCityController;
+use App\Http\Middleware\CityExistence;
 use Laravel\Fortify\Features;
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +18,6 @@ use Laravel\Fortify\Features;
 |
 */
 
-Route::get('/', CitiesController::class)->name('home');
 Route::get('/welcome', function () {
     return view('welcome');
 })->name('welcome');
@@ -24,6 +25,10 @@ Route::get('/welcome', function () {
 Route::get('/test', function () {
     return Inertia\Inertia::render('Test');
 })->name('test');
+
+Route::get('/', [CitiesController::class, 'list'])->name('home');
+
+Route::get('city/{city_name}', [CategoriesController::class, 'show'])->name('categories')->middleware(CityExistence::class);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia\Inertia::render('Dashboard');
