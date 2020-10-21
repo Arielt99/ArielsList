@@ -398,5 +398,189 @@
     {
         "name":"Acc.auto",
         "category_id":"5"
+    },
+    {
+        "name":"Antiquités",
+        "category_id":"5"
+    },
+    {
+        "name":"Art+Artisanat",
+        "category_id":"5"
+    },
+    {
+        "name":"Autos+camions",
+        "category_id":"5"
+    },
+    {
+        "name":"Aviation",
+        "category_id":"5"
+    },
+    {
+        "name":"Bateaux",
+        "category_id":"5"
+    },
+    {
+        "name":"Bébé+enfant",
+        "category_id":"5"
+    },
+    {
+        "name":"Bijoux",
+        "category_id":"5"
+    },
+    {
+        "name":"Billets",
+        "category_id":"5"
+    },
+    {
+        "name":"CD/DVD/VHS",
+        "category_id":"5"
+    },
+    {
+        "name":"Collections",
+        "category_id":"5"
+    },
+    {
+        "name":"Électromenager",
+        "category_id":"5"
+    },
+    {
+        "name":"Électronique",
+        "category_id":"5"
+    },
+    {
+        "name":"Entreprises",
+        "category_id":"5"
+    },
+    {
+        "name":"Général",
+        "category_id":"5"
+    },
+    {
+        "name":"Gratuit",
+        "category_id":"5"
+    },
+    {
+        "name":"Instr musique",
+        "category_id":"5"
+    },
+    {
+        "name":"Jardin+agri",
+        "category_id":"5"
+    },
+    {
+        "name":"Jeux+jouets",
+        "category_id":"5"
+    },
+    {
+        "name":"Jeux vidéos",
+        "category_id":"5"
+    },
+    {
+        "name":"Livres",
+        "category_id":"5"
+    },
+    {
+        "name":"Maison",
+        "category_id":"5"
+    },
+    {
+        "name":"Matériaux",
+        "category_id":"5"
+    },
+    {
+        "name":"Matériaux lourd",
+        "category_id":"5"
+    },
+    {
+        "name":"Meubles",
+        "category_id":"5"
+    },
+    {
+        "name":"Motos",
+        "category_id":"5"
+    },
+    {
+        "name":"Ordinateurs",
+        "category_id":"5"
+    },
+    {
+        "name":"Outils",
+        "category_id":"5"
+    },
+    {
+        "name":"Pcs bateau",
+        "category_id":"5"
+    },
+    {
+        "name":"Photo+vidéo",
+        "category_id":"5"
+    },
+    {
+        "name":"Pièces de motos",
+        "category_id":"5"
+    },
+    {
+        "name":"Pièces ordi",
+        "category_id":"5"
+    },
+    {
+        "name":"pièces vélo",
+        "category_id":"5"
+    },
+    {
+        "name":"Recherche",
+        "category_id":"5"
+    },
+    {
+        "name":"Remorques & caravanes",
+        "category_id":"5"
+    },
+    {
+        "name":"Roues + pneus",
+        "category_id":"5"
+    },
+    {
+        "name":"Santé+Beauté",
+        "category_id":"5"
+    },
+    {
+        "name":"Sport",
+        "category_id":"5"
+    },
+    {
+        "name":"Téléphones",
+        "category_id":"5"
+    },
+    {
+        "name":"Troc",
+        "category_id":"5"
+    },
+    {
+        "name":"Vélos",
+        "category_id":"5"
+    },
+    {
+        "name":"Vêtements+acc",
+        "category_id":"5"
+    },
+    {
+        "name":"vl + camp",
+        "category_id":"5"
+    },
+    {
+        "name":"Vte. déménagmt",
+        "category_id":"5"
+    },
+    {
+        "name":"Vtt/utt/moton.",
+        "category_id":"5"
+    },
+    {
+        "name":"Admin / Secrétariat",
+        "category_id":"6"
+    },
+    {
+        "name":"Arch / Ingénierie",
+        "category_id":"6"
     }
 ]
