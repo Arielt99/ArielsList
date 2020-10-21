@@ -356,7 +356,47 @@
         "category_id":"3"
     },
     {
-        "name":"Apts/ Immob",
+        "name":"Apts / Immob",
         "category_id":"4"
+    },
+    {
+        "name":"Bureaux / Commerces",
+        "category_id":"4"
+    },
+    {
+        "name":"Chbres / Colloc",
+        "category_id":"4"
+    },
+    {
+        "name":"Demande de logement",
+        "category_id":"4"
+    },
+    {
+        "name":"Échange d'apts",
+        "category_id":"4"
+    },
+    {
+        "name":"Immob à vendre",
+        "category_id":"4"
+    },
+    {
+        "name":"Locations de vacances",
+        "category_id":"4"
+    },
+    {
+        "name":"Parking / Garage",
+        "category_id":"4"
+    },
+    {
+        "name":"Recherche chbre",
+        "category_id":"4"
+    },
+    {
+        "name":"Sous-loc / Logmt temp",
+        "category_id":"4"
+    },
+    {
+        "name":"Acc.auto",
+        "category_id":"5"
     }
 ]

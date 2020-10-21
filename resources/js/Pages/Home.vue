@@ -30,5 +30,8 @@
             JetNavLink,
         },
         props: ['cities'],
+
+        methods: {
+        },
     }
 </script>

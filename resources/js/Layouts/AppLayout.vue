@@ -14,6 +14,9 @@
 
                         <!-- Navigation Links -->
                         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                            <jet-nav-link :href="route('home')" :active="$page.currentRouteName == 'home'">
+                                Ville{{ current_city ?  ': '+current_city.name : 's'}}
+                            </jet-nav-link>
                             <jet-nav-link v-if="$page.user" :href="route('dashboard')" :active="$page.currentRouteName == 'dashboard'">
                                 Dashboard
                             </jet-nav-link>
@@ -248,10 +251,12 @@
             JetNavLink,
             JetResponsiveNavLink,
         },
+        props: ['current_city'],
 
         data() {
             return {
                 showingNavigationDropdown: false,
+                city: '',
             }
         },
 
@@ -275,6 +280,22 @@
             path() {
                 return window.location.pathname
             }
+        },
+
+        watch:{
+            current_city(city) {
+                localStorage.current_city = city;
+            }
+        },
+
+        created:function(){
+            if(localStorage.getItem("current_city")){
+                this.city=localStorage.getItem("current_city").value
+            }
+            else{
+                console.log("il n'y a pas de ville")
+            }
         }
+
     }
 </script>
