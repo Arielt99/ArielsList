@@ -582,5 +582,121 @@
     {
         "name":"Arch / Ingénierie",
         "category_id":"6"
+    },
+    {
+        "name":"Art / Média / Création",
+        "category_id":"6"
+    },
+    {
+        "name":"Biotech / Science",
+        "category_id":"6"
+    },
+    {
+        "name":"Comm / Direction",
+        "category_id":"6"
+    },
+    {
+        "name":"Commerce de détail",
+        "category_id":"6"
+    },
+    {
+        "name":"Compta + finance",
+        "category_id":"6"
+    },
+    {
+        "name":"Conception Web/Infog",
+        "category_id":"6"
+    },
+    {
+        "name":"Enseignement",
+        "category_id":"6"
+    },
+    {
+        "name":"etc / misc",
+        "category_id":"6"
+    },
+    {
+        "name":"Fonction pub.",
+        "category_id":"6"
+    },
+    {
+        "name":"Général",
+        "category_id":"6"
+    },
+    {
+        "name":"Immobilier",
+        "category_id":"6"
+    },
+    {
+        "name":"Industrie",
+        "category_id":"6"
+    },
+    {
+        "name":"Jurid / Parajurid",
+        "category_id":"6"
+    },
+    {
+        "name":"Logiciel / QA /DBA",
+        "category_id":"6"
+    },
+    {
+        "name":"Marketing / RP / Pub",
+        "category_id":"6"
+    },
+    {
+        "name":"Médical / Santé",
+        "category_id":"6"
+    },
+    {
+        "name":"Rédaction / Édition",
+        "category_id":"6"
+    },
+    {
+        "name":"Ressources humaines",
+        "category_id":"6"
+    },
+    {
+        "name":"Rest. / Hôtellerie",
+        "category_id":"6"
+    },
+    {
+        "name":"Salon / Spa / Fitness",
+        "category_id":"6"
+    },
+    {
+        "name":"Secteur associatif",
+        "category_id":"6"
+    },
+    {
+        "name":"Sécurité",
+        "category_id":"6"
+    },
+    {
+        "name":"Service clientèle",
+        "category_id":"6"
+    },
+    {
+        "name":"Support technique",
+        "category_id":"6"
+    },
+    {
+        "name":"Système / Réseau",
+        "category_id":"6"
+    },
+    {
+        "name":"Techniciens / Artisans",
+        "category_id":"6"
+    },
+    {
+        "name":"Transport",
+        "category_id":"6"
+    },
+    {
+        "name":"TV / Film / Vidéo",
+        "category_id":"6"
+    },
+    {
+        "name":"Ventes / Prospection",
+        "category_id":"6"
     }
 ]

@@ -11,9 +11,9 @@
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div id="categories" class="flex flex-col flex-wrap p-6 bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                    <div v-for="category in categories" v-bind:key="category.id">
+                    <div id="list" v-for="category in categories" v-bind:key="category.id">
                         <h3 class="h-15 flex text-center flex-wrap justify-center items-center w-max-content text-2xl cursor-pointer font-bold">{{category.name}}</h3>
-                        <div class="grid grid-cols-2 ">
+                        <div id="subcat" class="flex flex-col flex-wrap">
                             <div v-for="subcategory in category.subcategories" v-bind:key="subcategory.id" >
                                 <p class="h-8 flex justify-center items-center w-auto cursor-pointer">{{subcategory.name}}</p>
                             </div>
@@ -40,6 +40,13 @@
 </script>
 <style>
 #categories{
-    height: 130vh;
+    height: 160vh;
+}
+#list{
+    width: 25vw;
+}
+#subcat{
+    min-height: 0vh;
+    max-height: 50vh;
 }
 </style>

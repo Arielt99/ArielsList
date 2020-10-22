@@ -4580,7 +4580,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#categories{\n  height: 130vh;\n}\n", ""]);
+exports.push([module.i, "#categories{\n  height: 160vh;\n}\n#list{\n  width: 25vw;\n}\n#subcat{\n  min-height: 0vh;\n  max-height: 50vh;\n}\n", ""]);
 
 // exports
 
@@ -27773,7 +27773,7 @@ var render = function() {
               attrs: { id: "categories" }
             },
             _vm._l(_vm.categories, function(category) {
-              return _c("div", { key: category.id }, [
+              return _c("div", { key: category.id, attrs: { id: "list" } }, [
                 _c(
                   "h3",
                   {
@@ -27785,7 +27785,10 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "div",
-                  { staticClass: "grid grid-cols-2 " },
+                  {
+                    staticClass: "flex flex-col flex-wrap",
+                    attrs: { id: "subcat" }
+                  },
                   _vm._l(category.subcategories, function(subcategory) {
                     return _c("div", { key: subcategory.id }, [
                       _c(
