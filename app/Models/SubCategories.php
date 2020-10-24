@@ -15,15 +15,17 @@ class SubCategories extends Model
      * @var array
      */
     protected $fillable = [
-        'name','category_id'
+        'name',
+        'slug',
+        'category_slug'
     ];
 
     /**
-     * get the sub and the cat
+     * get the parent category
      */
     public function category()
     {
-        return $this->belongsTo('App\Models\Categories', 'id', 'category_id');
+        return $this->belongsTo('App\Models\Categories', 'slug', 'category_slug');
     }
 
     /**

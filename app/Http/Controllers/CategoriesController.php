@@ -8,10 +8,10 @@ use Inertia\Inertia;
 
 class CategoriesController extends Controller
 {
-    public function show($city_name)
+    public function show($city_slug)
     {
         $categories = Categories::with('subcategories')->get();
-        $current_city = Cities::where('name','like', '%'.$city_name.'%')->first();
+        $current_city = Cities::where('slug','like', '%'.$city_slug.'%')->first();
 
         return Inertia::render('Categories', [
             'categories' => $categories,

@@ -15,7 +15,8 @@ class Categories extends Model
      * @var array
      */
     protected $fillable = [
-        'name'
+        'name',
+        'slug'
     ];
 
     /**
@@ -23,7 +24,7 @@ class Categories extends Model
      */
     public function subcategories()
     {
-        return $this->hasMany('App\Models\SubCategories','category_id');
+        return $this->hasMany('App\Models\SubCategories','category_slug','slug');
     }
 
     /**

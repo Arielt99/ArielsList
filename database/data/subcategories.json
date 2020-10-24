@@ -1,702 +1,734 @@
 [
     {
         "name":"Activités",
-        "category_id":"1"
+        "category_slug":"communaute"
     },
     {
         "name":"Animaux",
-        "category_id":"1"
+        "category_slug":"communaute"
     },
     {
         "name":"Artistes",
-        "category_id":"1"
+        "category_slug":"communaute"
     },
     {
         "name":"Bénévoles",
-        "category_id":"1"
+        "category_slug":"communaute"
     },
     {
         "name":"Coup de pouce au destin",
-        "category_id":"1"
+        "category_slug":"communaute"
     },
     {
         "name":"Coups de cœur/de griffe",
-        "category_id":"1"
+        "category_slug":"communaute"
     },
     {
         "name":"Cours",
-        "category_id":"1"
+        "category_slug":"communaute"
     },
     {
         "name":"Évenements",
-        "category_id":"1"
+        "category_slug":"communaute"
     },
     {
         "name":"Garde d'enfant",
-        "category_id":"1"
+        "category_slug":"communaute"
     },
     {
         "name":"Général",
-        "category_id":"1"
+        "category_slug":"communaute"
     },
     {
         "name":"Groupes",
-        "category_id":"1"
+        "category_slug":"communaute"
     },
     {
         "name":"Infos&locales",
-        "category_id":"1"
+        "category_slug":"communaute"
     },
     {
         "name":"Musiciens",
-        "category_id":"1"
+        "category_slug":"communaute"
     },
     {
         "name":"Perdu + trouvé",
-        "category_id":"1"
+        "category_slug":"communaute"
     },
     {
         "name":"Politique",
-        "category_id":"1"
+        "category_slug":"communaute"
     },
     {
         "name":"Animaux",
-        "category_id":"2"
+        "category_slug":"services"
     },
     {
         "name":"Annces.PE",
-        "category_id":"2"
+        "category_slug":"services"
     },
     {
         "name":"Auto",
-        "category_id":"2"
+        "category_slug":"services"
     },
     {
         "name":"Beauté",
-        "category_id":"2"
+        "category_slug":"services"
     },
     {
         "name":"Cours",
-        "category_id":"2"
+        "category_slug":"services"
     },
     {
         "name":"Creation",
-        "category_id":"2"
+        "category_slug":"services"
     },
     {
         "name":"Cycle",
-        "category_id":"2"
+        "category_slug":"services"
     },
     {
         "name":"Écrit./et/trad",
-        "category_id":"2"
+        "category_slug":"services"
     },
     {
         "name":"Événement",
-        "category_id":"2"
+        "category_slug":"services"
     },
     {
         "name":"Financiers",
-        "category_id":"2"
+        "category_slug":"services"
     },
     {
         "name":"Immobilier",
-        "category_id":"2"
+        "category_slug":"services"
     },
     {
         "name":"Jardin+agri.",
-        "category_id":"2"
+        "category_slug":"services"
     },
     {
         "name":"Juridique",
-        "category_id":"2"
+        "category_slug":"services"
     },
     {
         "name":"Maison",
-        "category_id":"2"
+        "category_slug":"services"
     },
     {
         "name":"Marin",
-        "category_id":"2"
+        "category_slug":"services"
     },
     {
         "name":"Ordinateur",
-        "category_id":"2"
+        "category_slug":"services"
     },
     {
         "name":"Port./mobile",
-        "category_id":"2"
+        "category_slug":"services"
     },
     {
         "name":"Travail qualif.",
-        "category_id":"2"
+        "category_slug":"services"
     },
     {
         "name":"Trsprt/Déménagement",
-        "category_id":"2"
+        "category_slug":"services"
     },
     {
         "name":"Voyages/ Vac",
-        "category_id":"2"
+        "category_slug":"services"
     },
     {
         "name":"Aide",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Aliment.",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Amour",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Android",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Animaux",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Apple",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Argent",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Arts",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Athée",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Autos",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Beauté",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Blagues",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Bon plan",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Comment.",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Cosmos",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Divorce",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Éco",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Emploi",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Extérieur",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Film",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Haïku",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Histoire",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Immobilier",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Impôts",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Jardin",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Jeux",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Juridique",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Linux",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Mariage",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Mœurs",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Mort",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Mots",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Musique",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Ordi",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Ouvrir",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Parents",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"People",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Philo",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Photo",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Politique",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Pycho",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Récuperer",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Rédaction",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Régime",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Religion",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Réparer",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Science",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Spirit",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Sport",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Super",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Télé",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Végétar",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Vélos",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Voyages",
-        "category_id":"3"
+        "category_slug":"forum-de-discussion"
     },
     {
         "name":"Apts / Immob",
-        "category_id":"4"
+        "category_slug":"immobilier"
     },
     {
         "name":"Bureaux / Commerces",
-        "category_id":"4"
+        "category_slug":"immobilier"
     },
     {
         "name":"Chbres / Colloc",
-        "category_id":"4"
+        "category_slug":"immobilier"
     },
     {
         "name":"Demande de logement",
-        "category_id":"4"
+        "category_slug":"immobilier"
     },
     {
         "name":"Échange d'apts",
-        "category_id":"4"
+        "category_slug":"immobilier"
     },
     {
         "name":"Immob à vendre",
-        "category_id":"4"
+        "category_slug":"immobilier"
     },
     {
         "name":"Locations de vacances",
-        "category_id":"4"
+        "category_slug":"immobilier"
     },
     {
         "name":"Parking / Garage",
-        "category_id":"4"
+        "category_slug":"immobilier"
     },
     {
         "name":"Recherche chbre",
-        "category_id":"4"
+        "category_slug":"immobilier"
     },
     {
         "name":"Sous-loc / Logmt temp",
-        "category_id":"4"
+        "category_slug":"immobilier"
     },
     {
         "name":"Acc.auto",
-        "category_id":"5"
+        "category_slug":"a-vendre"
     },
     {
         "name":"Antiquités",
-        "category_id":"5"
+        "category_slug":"a-vendre"
     },
     {
         "name":"Art+Artisanat",
-        "category_id":"5"
+        "category_slug":"a-vendre"
     },
     {
         "name":"Autos+camions",
-        "category_id":"5"
+        "category_slug":"a-vendre"
     },
     {
         "name":"Aviation",
-        "category_id":"5"
+        "category_slug":"a-vendre"
     },
     {
         "name":"Bateaux",
-        "category_id":"5"
+        "category_slug":"a-vendre"
     },
     {
         "name":"Bébé+enfant",
-        "category_id":"5"
+        "category_slug":"a-vendre"
     },
     {
         "name":"Bijoux",
-        "category_id":"5"
+        "category_slug":"a-vendre"
     },
     {
         "name":"Billets",
-        "category_id":"5"
+        "category_slug":"a-vendre"
     },
     {
         "name":"CD/DVD/VHS",
-        "category_id":"5"
+        "category_slug":"a-vendre"
     },
     {
         "name":"Collections",
-        "category_id":"5"
+        "category_slug":"a-vendre"
     },
     {
         "name":"Électromenager",
-        "category_id":"5"
+        "category_slug":"a-vendre"
     },
     {
         "name":"Électronique",
-        "category_id":"5"
+        "category_slug":"a-vendre"
     },
     {
         "name":"Entreprises",
-        "category_id":"5"
+        "category_slug":"a-vendre"
     },
     {
         "name":"Général",
-        "category_id":"5"
+        "category_slug":"a-vendre"
     },
     {
         "name":"Gratuit",
-        "category_id":"5"
+        "category_slug":"a-vendre"
     },
     {
         "name":"Instr musique",
-        "category_id":"5"
+        "category_slug":"a-vendre"
     },
     {
         "name":"Jardin+agri",
-        "category_id":"5"
+        "category_slug":"a-vendre"
     },
     {
         "name":"Jeux+jouets",
-        "category_id":"5"
+        "category_slug":"a-vendre"
     },
     {
         "name":"Jeux vidéos",
-        "category_id":"5"
+        "category_slug":"a-vendre"
     },
     {
         "name":"Livres",
-        "category_id":"5"
+        "category_slug":"a-vendre"
     },
     {
         "name":"Maison",
-        "category_id":"5"
+        "category_slug":"a-vendre"
     },
     {
         "name":"Matériaux",
-        "category_id":"5"
+        "category_slug":"a-vendre"
     },
     {
         "name":"Matériaux lourd",
-        "category_id":"5"
+        "category_slug":"a-vendre"
     },
     {
         "name":"Meubles",
-        "category_id":"5"
+        "category_slug":"a-vendre"
     },
     {
         "name":"Motos",
-        "category_id":"5"
+        "category_slug":"a-vendre"
     },
     {
         "name":"Ordinateurs",
-        "category_id":"5"
+        "category_slug":"a-vendre"
     },
     {
         "name":"Outils",
-        "category_id":"5"
+        "category_slug":"a-vendre"
     },
     {
         "name":"Pcs bateau",
-        "category_id":"5"
+        "category_slug":"a-vendre"
     },
     {
         "name":"Photo+vidéo",
-        "category_id":"5"
+        "category_slug":"a-vendre"
     },
     {
         "name":"Pièces de motos",
-        "category_id":"5"
+        "category_slug":"a-vendre"
     },
     {
         "name":"Pièces ordi",
-        "category_id":"5"
+        "category_slug":"a-vendre"
     },
     {
         "name":"pièces vélo",
-        "category_id":"5"
+        "category_slug":"a-vendre"
     },
     {
         "name":"Recherche",
-        "category_id":"5"
+        "category_slug":"a-vendre"
     },
     {
         "name":"Remorques & caravanes",
-        "category_id":"5"
+        "category_slug":"a-vendre"
     },
     {
         "name":"Roues + pneus",
-        "category_id":"5"
+        "category_slug":"a-vendre"
     },
     {
         "name":"Santé+Beauté",
-        "category_id":"5"
+        "category_slug":"a-vendre"
     },
     {
         "name":"Sport",
-        "category_id":"5"
+        "category_slug":"a-vendre"
     },
     {
         "name":"Téléphones",
-        "category_id":"5"
+        "category_slug":"a-vendre"
     },
     {
         "name":"Troc",
-        "category_id":"5"
+        "category_slug":"a-vendre"
     },
     {
         "name":"Vélos",
-        "category_id":"5"
+        "category_slug":"a-vendre"
     },
     {
         "name":"Vêtements+acc",
-        "category_id":"5"
+        "category_slug":"a-vendre"
     },
     {
         "name":"vl + camp",
-        "category_id":"5"
+        "category_slug":"a-vendre"
     },
     {
         "name":"Vte. déménagmt",
-        "category_id":"5"
+        "category_slug":"a-vendre"
     },
     {
         "name":"Vtt/utt/moton.",
-        "category_id":"5"
+        "category_slug":"a-vendre"
     },
     {
         "name":"Admin / Secrétariat",
-        "category_id":"6"
+        "category_slug":"emploi"
     },
     {
         "name":"Arch / Ingénierie",
-        "category_id":"6"
+        "category_slug":"emploi"
     },
     {
         "name":"Art / Média / Création",
-        "category_id":"6"
+        "category_slug":"emploi"
     },
     {
         "name":"Biotech / Science",
-        "category_id":"6"
+        "category_slug":"emploi"
     },
     {
         "name":"Comm / Direction",
-        "category_id":"6"
+        "category_slug":"emploi"
     },
     {
         "name":"Commerce de détail",
-        "category_id":"6"
+        "category_slug":"emploi"
     },
     {
         "name":"Compta + finance",
-        "category_id":"6"
+        "category_slug":"emploi"
     },
     {
         "name":"Conception Web/Infog",
-        "category_id":"6"
+        "category_slug":"emploi"
     },
     {
         "name":"Enseignement",
-        "category_id":"6"
+        "category_slug":"emploi"
     },
     {
         "name":"etc / misc",
-        "category_id":"6"
+        "category_slug":"emploi"
     },
     {
         "name":"Fonction pub.",
-        "category_id":"6"
+        "category_slug":"emploi"
     },
     {
         "name":"Général",
-        "category_id":"6"
+        "category_slug":"emploi"
     },
     {
         "name":"Immobilier",
-        "category_id":"6"
+        "category_slug":"emploi"
     },
     {
         "name":"Industrie",
-        "category_id":"6"
+        "category_slug":"emploi"
     },
     {
         "name":"Jurid / Parajurid",
-        "category_id":"6"
+        "category_slug":"emploi"
     },
     {
         "name":"Logiciel / QA /DBA",
-        "category_id":"6"
+        "category_slug":"emploi"
     },
     {
         "name":"Marketing / RP / Pub",
-        "category_id":"6"
+        "category_slug":"emploi"
     },
     {
         "name":"Médical / Santé",
-        "category_id":"6"
+        "category_slug":"emploi"
     },
     {
         "name":"Rédaction / Édition",
-        "category_id":"6"
+        "category_slug":"emploi"
     },
     {
         "name":"Ressources humaines",
-        "category_id":"6"
+        "category_slug":"emploi"
     },
     {
         "name":"Rest. / Hôtellerie",
-        "category_id":"6"
+        "category_slug":"emploi"
     },
     {
         "name":"Salon / Spa / Fitness",
-        "category_id":"6"
+        "category_slug":"emploi"
     },
     {
         "name":"Secteur associatif",
-        "category_id":"6"
+        "category_slug":"emploi"
     },
     {
         "name":"Sécurité",
-        "category_id":"6"
+        "category_slug":"emploi"
     },
     {
         "name":"Service clientèle",
-        "category_id":"6"
+        "category_slug":"emploi"
     },
     {
         "name":"Support technique",
-        "category_id":"6"
+        "category_slug":"emploi"
     },
     {
         "name":"Système / Réseau",
-        "category_id":"6"
+        "category_slug":"emploi"
     },
     {
         "name":"Techniciens / Artisans",
-        "category_id":"6"
+        "category_slug":"emploi"
     },
     {
         "name":"Transport",
-        "category_id":"6"
+        "category_slug":"emploi"
     },
     {
         "name":"TV / Film / Vidéo",
-        "category_id":"6"
+        "category_slug":"emploi"
     },
     {
         "name":"Ventes / Prospection",
-        "category_id":"6"
+        "category_slug":"emploi"
+    },
+    {
+        "name":"Création",
+        "category_slug":"petits-boulots"
+    },
+    {
+        "name":"Divers",
+        "category_slug":"petits-boulots"
+    },
+    {
+        "name":"Informatique",
+        "category_slug":"petits-boulots"
+    },
+    {
+        "name":"Rédaction",
+        "category_slug":"petits-boulots"
+    },
+    {
+        "name":"Talent",
+        "category_slug":"petits-boulots"
+    },
+    {
+        "name":"Tournage",
+        "category_slug":"petits-boulots"
+    },
+    {
+        "name":"À domicile",
+        "category_slug":"petits-boulots"
+    },
+    {
+        "name":"Évenements",
+        "category_slug":"petits-boulots"
     }
 ]
