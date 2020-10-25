@@ -20,8 +20,8 @@
                             <jet-nav-link v-if="$page.user" :href="route('dashboard')" :active="$page.currentRouteName == 'dashboard'">
                                 Dashboard
                             </jet-nav-link>
-                            <jet-nav-link :href="route('test')" :active="$page.currentRouteName == 'test'">
-                                Page de Test
+                            <jet-nav-link :href="route('post',{post_slug: '901578243annonce-test'})" :active="$page.currentRouteName == 'post'">
+                                Page de post
                             </jet-nav-link>
                         </div>
                     </div>
@@ -136,9 +136,10 @@
                     <jet-responsive-nav-link v-if="$page.user" :href="route('dashboard')" :active="$page.currentRouteName == 'dashboard'">
                         Dashboard
                     </jet-responsive-nav-link>
-                    <jet-responsive-nav-link :href="route('test')" :active="$page.currentRouteName == 'test'">
-                        Page de Test
+                    <jet-responsive-nav-link :href="route('post',{post_slug: '901578243annonce-test'})" :active="$page.currentRouteName == 'post'">
+                                Page de post
                     </jet-responsive-nav-link>
+
                     <a v-if="!$page.user" :href="route('login')" :active="$page.currentRouteName == 'login'">
                         login
                     </a>
@@ -291,9 +292,6 @@
         created:function(){
             if(localStorage.getItem("current_city")){
                 this.city=localStorage.getItem("current_city").value
-            }
-            else{
-                console.log("il n'y a pas de ville")
             }
         }
 

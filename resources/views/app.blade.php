@@ -22,3 +22,20 @@
         @inertia
     </body>
 </html>
+<style>
+    /* width */
+::-webkit-scrollbar {
+  background: rgb(241, 241, 241);
+  width: 5px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 2px;
+  background: rgb(241, 241, 241);
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(48, 48, 48);
+  border-radius: 2px;
+}
+</style>

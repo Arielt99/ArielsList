@@ -18,7 +18,7 @@ class CityExistence
      */
     public function handle(Request $request, Closure $next)
     {
-        $city = Cities::where('slug','like', '%'.$request->route()->parameter('city_slug').'%')->first();
+        $city = Cities::where('slug',$request->route()->parameter('city_slug'))->first();
         if ($city === null) {
             return Redirect::route('home');
         }

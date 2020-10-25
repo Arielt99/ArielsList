@@ -5,9 +5,9 @@
                 Annonce
             </h2>
         </template>
-
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 {{post.title}}
                 <br>
                 {{post.description}}
@@ -19,6 +19,10 @@
                 city : {{post.city.name}}
                 <br>
                 posted by : {{post.user.name}}
+                {{configDateTime(post.created_at)}}
+                <br>
+                last update : {{configDateTime(post.updated_at)}}
+                </div>
             </div>
         </div>
     </app-layout>
@@ -34,8 +38,10 @@
             JetNavLink,
         },
         props: ['post'],
-
-        methods: {
+        methods:{
+            configDateTime(date) {
+                return this.$moment(date).startOf('second').locale('fr').fromNow()
+            },
         },
     }
 </script>

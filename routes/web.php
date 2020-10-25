@@ -6,6 +6,7 @@ use App\Http\Controllers\CitiesController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\UserDefaultCityController;
+use App\Http\Middleware\CategoryExistence;
 use App\Http\Middleware\CityExistence;
 use Laravel\Fortify\Features;
 /*
@@ -19,22 +20,43 @@ use Laravel\Fortify\Features;
 |
 */
 
-Route::get('/welcome', function () {
-    return view('welcome');
-})->name('welcome');
+// Route::get('/welcome', function () {
+//     return view('welcome');
+// })->name('welcome');
 
-Route::get('/test', function () {
-    return Inertia\Inertia::render('Test');
-})->name('test');
+// Route::get('/test', function () {
+//     return Inertia\Inertia::render('Test');
+// })->name('test');
 
 Route::get('/', [CitiesController::class, 'list'])->name('home');
-
-Route::get('/{city_slug}', [CategoriesController::class, 'show'])->name('categories')->middleware(CityExistence::class);
 Route::get('post/{post_slug}', [PostsController::class, 'show'])->name('post');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia\Inertia::render('Dashboard');
 })->name('dashboard');
+
+
+//get category page
+Route::get('/{city_slug}', [CategoriesController::class, 'show'])->name('categories')->middleware(CityExistence::class);
+
+//get all the annonces filtered by
+//the city and category
+Route::get('/{city_slug}/{category_slug}', [CategoriesController::class, 'display'])->name('category')->middleware(CityExistence::class, CategoryExistence::class);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //waiting for solution
