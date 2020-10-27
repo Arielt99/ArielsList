@@ -12,7 +12,7 @@
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="grid grid-cols-3 p-6 bg-white overflow-hidden shadow-xl sm:rounded-lg">
                     <div class="flex text-center justify-center items-center h-10 cursor-pointer" v-for="city in cities" v-bind:key="city.id">
-                        <jet-nav-link :href="route('categories', { city_slug: city.slug })">
+                        <jet-nav-link :href="route('city', { city_slug: city.slug })">
                                 {{city.name}}
                         </jet-nav-link>
                     </div>

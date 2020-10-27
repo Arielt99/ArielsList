@@ -25,7 +25,11 @@
                         </h3>
                         <div id="subcat" class="flex flex-col flex-wrap">
                             <div v-for="subcategory in category.subcategories" v-bind:key="subcategory.id" >
-                                <p class="h-8 flex justify-center items-center w-auto cursor-pointer">{{subcategory.name}}</p>
+                                <p class="h-8 flex justify-center items-center w-auto cursor-pointer">
+                                    <jet-nav-link class="h-8 cursor-pointer" :href="route('subcategory',{city_slug : current_city.slug, category_slug : category.slug, subcategory_slug : subcategory.slug} )">
+                                    {{subcategory.name}}
+                                    </jet-nav-link>
+                                </p>
                             </div>
                         </div>
                     </div>

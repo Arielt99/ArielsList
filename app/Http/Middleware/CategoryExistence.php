@@ -20,7 +20,7 @@ class CategoryExistence
     {
         $category = Categories::where('slug',$request->route()->parameter('category_slug'))->first();
         if ($category === null) {
-            return Redirect::route('home');
+            return Redirect::route('city',['city_slug' => $request->route()->parameter('city_slug')]);
         }
         return $next($request);
     }

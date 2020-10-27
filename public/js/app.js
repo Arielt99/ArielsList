@@ -3533,6 +3533,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -49485,7 +49489,29 @@ var render = function() {
                           staticClass:
                             "h-8 flex justify-center items-center w-auto cursor-pointer"
                         },
-                        [_vm._v(_vm._s(subcategory.name))]
+                        [
+                          _c(
+                            "jet-nav-link",
+                            {
+                              staticClass: "h-8 cursor-pointer",
+                              attrs: {
+                                href: _vm.route("subcategory", {
+                                  city_slug: _vm.current_city.slug,
+                                  category_slug: category.slug,
+                                  subcategory_slug: subcategory.slug
+                                })
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                                " +
+                                  _vm._s(subcategory.name) +
+                                  "\n                                "
+                              )
+                            ]
+                          )
+                        ],
+                        1
                       )
                     ])
                   }),
@@ -49617,7 +49643,7 @@ var render = function() {
                     "jet-nav-link",
                     {
                       attrs: {
-                        href: _vm.route("categories", {
+                        href: _vm.route("city", {
                           city_slug: _vm.current_city.slug
                         })
                       }
@@ -49628,7 +49654,7 @@ var render = function() {
                           _vm._s(
                             _vm.current_category
                               ? "" + _vm.current_category.name
-                              : "Categories"
+                              : "city"
                           ) +
                           "\n            "
                       )
@@ -49644,8 +49670,9 @@ var render = function() {
                         "jet-nav-link",
                         {
                           attrs: {
-                            href: _vm.route("categories", {
-                              city_slug: _vm.current_city.slug
+                            href: _vm.route("category", {
+                              city_slug: _vm.current_city.slug,
+                              category_slug: _vm.current_category.slug
                             })
                           }
                         },
@@ -49689,7 +49716,11 @@ var render = function() {
               staticClass:
                 "grid grid-cols-3 p-6 bg-white overflow-hidden shadow-xl sm:rounded-lg"
             },
-            [_c("post-card", { attrs: { post: _vm.posts } })],
+            [
+              _vm.posts
+                ? _c("post-card", { attrs: { post: _vm.posts } })
+                : _vm._e()
+            ],
             1
           )
         ])
@@ -49769,7 +49800,7 @@ var render = function() {
                     "jet-nav-link",
                     {
                       attrs: {
-                        href: _vm.route("categories", { city_slug: city.slug })
+                        href: _vm.route("city", { city_slug: city.slug })
                       }
                     },
                     [
@@ -66315,8 +66346,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var laravel_jetstream__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(laravel_jetstream__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var portal_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! portal-vue */ "./node_modules/portal-vue/dist/portal-vue.common.js");
 /* harmony import */ var portal_vue__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(portal_vue__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_4__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
@@ -66324,7 +66355,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.prototype.$moment = moment__WEBPACK_IMPORTED_MODULE_5___default.a;
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.prototype.$moment = moment__WEBPACK_IMPORTED_MODULE_4___default.a;
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.mixin({
   methods: {
     route: route

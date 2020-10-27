@@ -5,9 +5,11 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\CitiesController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\SubCategoriesController;
 use App\Http\Controllers\UserDefaultCityController;
 use App\Http\Middleware\CategoryExistence;
 use App\Http\Middleware\CityExistence;
+use App\Http\Middleware\SubCategoryExistence;
 use Laravel\Fortify\Features;
 /*
 |--------------------------------------------------------------------------
@@ -37,11 +39,14 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 
 //get category page
-Route::get('/{city_slug}', [CategoriesController::class, 'show'])->name('categories')->middleware(CityExistence::class);
+Route::get('/{city_slug}', [CitiesController::class, 'display'])->name('city')->middleware(CityExistence::class);
 
 //get all the annonces filtered by
 //the city and category
 Route::get('/{city_slug}/{category_slug}', [CategoriesController::class, 'display'])->name('category')->middleware(CityExistence::class, CategoryExistence::class);
+//the city, category and subcategory
+Route::get('/{city_slug}/{category_slug}/{subcategory_slug}', [SubCategoriesController::class, 'display'])->name('subcategory')->middleware(CityExistence::class, CategoryExistence::class,SubCategoryExistence::class);
+
 
 
 
