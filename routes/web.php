@@ -47,6 +47,14 @@ Route::put('/AddPost', [PostsController::class, 'store'])->name('addNewPost')->m
 //search post in everything
 Route::get('/search/{search_content}', [SearchController::class, 'display'])->name('search');
 
+//display current user posts
+Route::get('/your-posts', [PostsController::class, 'show_current'])->name('userPosts')->middleware(['auth:sanctum', 'verified']);
+
+//delete a post
+Route::delete('/your-post', [PostsController::class, 'destroy'])->name('destroy_post')->middleware(['auth:sanctum', 'verified']);
+
+
+
 //get category page
 Route::get('/{city_slug}', [CitiesController::class, 'display'])->name('city')->middleware(CityExistence::class);
 

@@ -14,6 +14,7 @@ class SearchController extends Controller
         return Inertia::render('Display', [
             'posts' => $posts,
             'search_content' =>$search_content,
+            'route_name' => 'search'
         ]);
     }
 }

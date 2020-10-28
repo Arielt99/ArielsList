@@ -48,8 +48,15 @@
                 {{configDateTime(post.created_at)}}
                 <br>
                 last update : {{configDateTime(post.updated_at)}}
+                <button v-if="$page.user">
+                    ajouter aux favoris
+                </button>
+                <button v-if="$page.user">
+                    masquer
+                </button>
                 </div>
             </div>
+
         </div>
     </app-layout>
 </template>

@@ -19,6 +19,7 @@ class CategoriesController extends Controller
             'posts' => $posts,
             'current_city' => $current_city,
             'current_category' => $current_category,
+            'route_name' => 'category'
         ]);
     }
 }

@@ -64,4 +64,28 @@ class PostsController extends Controller
         : back()->with('status', 'post added');
     }
 
+    public function show_current()
+    {
+
+        $posts = Post::where('user_id', Auth::id())->with('city')->get();
+
+
+        return Inertia::render('PostManagement/UserDisplay', [
+            'posts' => $posts,
+            'route_name' => 'userPosts'
+        ]);
+    }
+
+    public function destroy(Request $request){
+        Validator::make($request->all(), [
+            'target_post' => ['required'],
+        ])->validateWithBag('deletePost');
+
+        if(Auth::id() == $request->target_post['user_id']){
+            Post::findOrFail($request->target_post['id'])->delete();
+            return $request->wantsJson()
+            ? new JsonResponse('', 200)
+            : back()->with('status', 'post deleted');
+        }
+    }
 }

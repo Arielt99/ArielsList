@@ -22,6 +22,7 @@ class SubCategoriesController extends Controller
             'current_city' => $current_city,
             'current_category' => $current_category,
             'current_subcategory' => $current_subcategory,
+            'route_name' => 'subcategory'
         ]);
     }
 }

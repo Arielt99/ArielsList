@@ -5,32 +5,20 @@
                 <jet-nav-link :href="route('home')">
                     Home
                 </jet-nav-link>
-                <div>
-                    <span v-if="current_city">
-                        >
-                    </span>
-                    <jet-nav-link v-if="current_city" :href="route('city', {city_slug : current_city.slug})">
-                        {{ current_city ?  ''+current_city.name : 'Cities'}}
-                    </jet-nav-link>
-                    <span v-if="current_category">
-                        >
-                    </span>
-                    <jet-nav-link v-if="current_category" :href="route('category',{city_slug : current_city.slug, category_slug : current_category.slug})">
-                        {{ current_category ?  ''+current_category.name : 'Categories'}}
-                    </jet-nav-link>
-                    <span v-if="current_subcategory">
-                        >
-                    </span>
-                    <jet-nav-link v-if="current_subcategory" :href="route('subcategory',{city_slug : current_city.slug, category_slug : current_category.slug, subcategory_slug : current_subcategory.slug})">
-                        {{ current_subcategory ?  ''+current_subcategory.name : ''}}
-                    </jet-nav-link>
-                </div>
                 <div v-if="route_name == 'search'">
                     <span v-if="search_content">
                         >
                     </span>
                     <jet-nav-link v-if="search_content" :href="route('search', {search_content : search_content})">
                         resultat pour {{search_content}}
+                    </jet-nav-link>
+                </div>
+                <div v-if="route_name == 'userPosts'">
+                    <span>
+                        >
+                    </span>
+                    <jet-nav-link :href="route('userPosts')">
+                        Vos Annonces
                     </jet-nav-link>
                 </div>
             </h2>
@@ -40,7 +28,7 @@
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="grid p-6 bg-white overflow-hidden shadow-xl sm:rounded-lg">
                     <div v-if="posts">
-                        <post-card v-for="post in PostResearch" v-bind:key=" post.id" :post="post"/>
+                        <current-user-post-card v-for="post in PostResearch" v-bind:key=" post.id" :post="post"/>
                     </div>
                 </div>
             </div>
@@ -71,9 +59,9 @@
     </app-layout>
 </template>
 <script>
-    import AppLayout from './../Layouts/AppLayout'
-    import JetNavLink from './../Jetstream/NavLink'
-    import PostCard from './../Components/PostCard'
+    import AppLayout from './../../Layouts/AppLayout'
+    import JetNavLink from './../../Jetstream/NavLink'
+    import CurrentUserPostCard from './../../Components/CurrentUserPostCard'
 
     export default {
         data () {
@@ -87,7 +75,7 @@
         components: {
             AppLayout,
             JetNavLink,
-            PostCard
+            CurrentUserPostCard
         },
         props: ['posts','current_city','current_category','current_subcategory','search_content','route_name'],
 

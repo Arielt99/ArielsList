@@ -14,9 +14,6 @@
 
                         <!-- Navigation Links -->
                         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                            <jet-nav-link :href="route('home')" :active="$page.currentRouteName == 'home'">
-                                Ville{{ current_city ?  ': '+current_city.name : 's'}}
-                            </jet-nav-link>
                             <!-- <jet-nav-link v-if="$page.user" :href="route('dashboard')" :active="$page.currentRouteName == 'dashboard'">
                                 Dashboard
                             </jet-nav-link> -->
@@ -66,7 +63,11 @@
                                     </jet-dropdown-link>
 
                                     <jet-dropdown-link :href="route('addpost')">
-                                        add Post
+                                        Add a Post
+                                    </jet-dropdown-link>
+
+                                    <jet-dropdown-link :href="route('userPosts')">
+                                        Your Posts
                                     </jet-dropdown-link>
 
                                     <jet-dropdown-link :href="route('api-tokens.index')" v-if="$page.jetstream.hasApiFeatures">
@@ -137,9 +138,6 @@
             <!-- Responsive Navigation Menu -->
             <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class="sm:hidden">
                 <div class="pt-2 pb-3 space-y-1">
-                    <jet-responsive-nav-link :href="route('home')" :active="$page.currentRouteName == 'home'">
-                        Ville{{ current_city ?  ': '+current_city.name : 's'}}
-                    </jet-responsive-nav-link>
                     <!-- <jet-responsive-nav-link v-if="$page.user" :href="route('dashboard')" :active="$page.currentRouteName == 'dashboard'">
                         Dashboard
                     </jet-responsive-nav-link> -->
@@ -168,6 +166,10 @@
                     <div class="mt-3 space-y-1">
                         <jet-responsive-nav-link :href="route('profile.show')" :active="$page.currentRouteName == 'profile.show'">
                             Profile
+                        </jet-responsive-nav-link>
+
+                        <jet-responsive-nav-link :href="route('addpost')">
+                            Add a Post
                         </jet-responsive-nav-link>
 
                         <jet-responsive-nav-link :href="route('api-tokens.index')" :active="$page.currentRouteName == 'api-tokens.index'" v-if="$page.jetstream.hasApiFeatures">
