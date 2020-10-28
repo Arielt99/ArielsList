@@ -55,6 +55,7 @@
                 <jet-input-error :message="form.error('email')" class="mt-2" />
             </div>
 
+            <!-- City -->
             <div class="col-span-6 sm:col-span-4">
                 <jet-label for="city" value="Default City" />
                 <select v-model="form.default_city" ref="city" class=" form-input block rounded-md shadow-sm mt-1 w-full border text-gray-700 py-2.5 px-4 pr-8 rounded leading-tight focus:outline-none" id="grid-state">

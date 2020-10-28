@@ -1,8 +1,9 @@
 <template>
-    <div>
-        <jet-nav-link :href="route('post',{post_slug: post.slug})" :active="$page.currentRouteName == 'post'">
+    <div class="flex w-full justify-between flex-row">
+        <jet-nav-link class="h-8 flex" :href="route('post',{post_slug: post.slug})" :active="$page.currentRouteName == 'post'">
             {{post.title}}
         </jet-nav-link>
+        <p classe="flex">{{configDateTime(post.created_at)}}</p>
     </div>
 </template>
 
@@ -14,14 +15,10 @@
             JetNavLink,
         },
         props: ['post'],
-
-        data() {
-            return {
-            }
-        },
-
-        methods: {
-
+        methods:{
+            configDateTime(date) {
+                return this.$moment(date).startOf('second').locale('fr').fromNow()
+            },
         },
 
         computed: {

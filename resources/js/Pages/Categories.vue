@@ -3,13 +3,13 @@
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 <jet-nav-link :href="route('home')">
-                    {{ current_city ?  ''+current_city.name : 'Cities'}}
+                    Home
                 </jet-nav-link>
                 <span v-if="current_city">
                     >
                 </span>
-                <jet-nav-link :href="'#'">
-                    Categories
+                <jet-nav-link :href="route('city', {city_slug : current_city.slug})">
+                    {{ current_city ?  ''+current_city.name : 'Cities'}}
                 </jet-nav-link>
             </h2>
         </template>

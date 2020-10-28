@@ -17,15 +17,15 @@
                             <jet-nav-link :href="route('home')" :active="$page.currentRouteName == 'home'">
                                 Ville{{ current_city ?  ': '+current_city.name : 's'}}
                             </jet-nav-link>
-                            <jet-nav-link v-if="$page.user" :href="route('dashboard')" :active="$page.currentRouteName == 'dashboard'">
+                            <!-- <jet-nav-link v-if="$page.user" :href="route('dashboard')" :active="$page.currentRouteName == 'dashboard'">
                                 Dashboard
-                            </jet-nav-link>
-                            <jet-nav-link :href="route('post',{post_slug: '901578243annonce-test'})" :active="$page.currentRouteName == 'post'">
-                                Page de post
-                            </jet-nav-link>
+                            </jet-nav-link> -->
                         </div>
                     </div>
-
+                    <div class="hidden sm:flex sm:items-center sm:ml-6">
+                        <input v-model="searchContent" v-on:keyup.enter="search()" class="form-input rounded-md shadow-sm" placeholder="rechercher (dans tout)">
+                        <button @click="search()">recherche</button>
+                    </div>
                     <div v-if="!$page.user" class="hidden sm:flex sm:items-center sm:ml-6">
                             <a class="'inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out'" :href="route('login')" :active="$page.currentRouteName == 'login'">
                                 login
@@ -63,6 +63,10 @@
 
                                     <jet-dropdown-link :href="route('profile.show')">
                                         Profile
+                                    </jet-dropdown-link>
+
+                                    <jet-dropdown-link :href="route('addpost')">
+                                        add Post
                                     </jet-dropdown-link>
 
                                     <jet-dropdown-link :href="route('api-tokens.index')" v-if="$page.jetstream.hasApiFeatures">
@@ -133,12 +137,12 @@
             <!-- Responsive Navigation Menu -->
             <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class="sm:hidden">
                 <div class="pt-2 pb-3 space-y-1">
-                    <jet-responsive-nav-link v-if="$page.user" :href="route('dashboard')" :active="$page.currentRouteName == 'dashboard'">
+                    <jet-responsive-nav-link :href="route('home')" :active="$page.currentRouteName == 'home'">
+                        Ville{{ current_city ?  ': '+current_city.name : 's'}}
+                    </jet-responsive-nav-link>
+                    <!-- <jet-responsive-nav-link v-if="$page.user" :href="route('dashboard')" :active="$page.currentRouteName == 'dashboard'">
                         Dashboard
-                    </jet-responsive-nav-link>
-                    <jet-responsive-nav-link :href="route('post',{post_slug: '901578243annonce-test'})" :active="$page.currentRouteName == 'post'">
-                                Page de post
-                    </jet-responsive-nav-link>
+                    </jet-responsive-nav-link> -->
 
                     <a v-if="!$page.user" :href="route('login')" :active="$page.currentRouteName == 'login'">
                         login
@@ -242,6 +246,8 @@
     import JetDropdownLink from './../Jetstream/DropdownLink'
     import JetNavLink from './../Jetstream/NavLink'
     import JetResponsiveNavLink from './../Jetstream/ResponsiveNavLink'
+    import JetModal from './../Jetstream/Modal'
+    import JetButton from './../Jetstream/Button'
 
     export default {
         components: {
@@ -258,10 +264,17 @@
             return {
                 showingNavigationDropdown: false,
                 city: '',
+                searchContent:'',
             }
         },
 
         methods: {
+            search(){
+                if(this.searchContent != this.searchContent.length != 0){
+                 window.location.href = route('search',{search_content : this.searchContent})
+                }
+            },
+
             switchToTeam(team) {
                 this.$inertia.put(route('current-team.update'), {
                     'team_id': team.id

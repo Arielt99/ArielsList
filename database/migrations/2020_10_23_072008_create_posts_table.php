@@ -18,7 +18,7 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->string('slug');
             $table->longText('description');
-            $table->integer('state');
+            $table->boolean('state')->default(true);
             $table->integer('user_id');
             $table->string('city_slug');
             $table->string('category_slug');

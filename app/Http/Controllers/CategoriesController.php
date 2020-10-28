@@ -11,7 +11,7 @@ class CategoriesController extends Controller
 {
     public function display($city_slug, $category_slug)
     {
-        $posts = Post::where('city_slug',$city_slug)->where('category_slug',$category_slug)->with('subcategory','category','city', 'user')->first();
+        $posts = Post::where('city_slug',$city_slug)->where('category_slug',$category_slug)->with('subcategory','category','city', 'user')->get();
         $current_city = Cities::where('slug',$city_slug)->first();
         $current_category = Categories::where('slug',$category_slug)->first();
 
