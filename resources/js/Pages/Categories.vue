@@ -18,20 +18,7 @@
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div id="categories" class="flex flex-col flex-wrap p-6 bg-white overflow-hidden shadow-xl sm:rounded-lg">
                     <div id="list" v-for="category in categories" v-bind:key="category.id">
-                        <h3 class="h-15 flex text-center flex-wrap justify-center items-center w-max-content text-2xl cursor-pointer font-bold">
-                            <jet-nav-link class="h-15 text-2xl cursor-pointer font-bold" :href="route('category',{city_slug : current_city.slug, category_slug : category.slug} )">
-                            {{category.name}}
-                            </jet-nav-link>
-                        </h3>
-                        <div id="subcat" class="flex flex-col flex-wrap">
-                            <div v-for="subcategory in category.subcategories" v-bind:key="subcategory.id" >
-                                <p class="h-8 flex justify-center items-center w-auto cursor-pointer">
-                                    <jet-nav-link class="h-8 cursor-pointer" :href="route('subcategory',{city_slug : current_city.slug, category_slug : category.slug, subcategory_slug : subcategory.slug} )">
-                                    {{subcategory.name}}
-                                    </jet-nav-link>
-                                </p>
-                            </div>
-                        </div>
+                        <category-display :category="category" :current_city="current_city"/>
                     </div>
                 </div>
             </div>
@@ -40,6 +27,7 @@
 </template>
 
 <script>
+    import CategoryDisplay from "./../components/CategoryDisplay"
     import AppLayout from './../Layouts/AppLayout'
     import JetNavLink from './../Jetstream/NavLink'
 
@@ -47,20 +35,25 @@
         components: {
             AppLayout,
             JetNavLink,
+            CategoryDisplay,
+        },
+
+        data() {
+            return {
+            }
         },
 
         props: ['categories','current_city'],
+
+        methods: {
+        }
     }
 </script>
 <style>
 #categories{
-    height: 160vh;
+    height: 200vh;
 }
 #list{
-    width: 25vw;
-}
-#subcat{
-    min-height: 0vh;
-    max-height: 50vh;
+    margin: 0 20px;
 }
 </style>
