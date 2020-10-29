@@ -17,10 +17,21 @@ class PostsController extends Controller
 {
     public function show($post_slug)
     {
-        $post = Post::where('slug','like', '%'.$post_slug.'%')->with('subcategory','category','city', 'user')->first();
+        $post = Post::where('slug',$post_slug)->with('subcategory','category','city', 'user')->first();
 
         return Inertia::render('Posts', [
             'post' => $post,
+        ]);
+    }
+
+    public function show_current()
+    {
+        $posts = Post::where('user_id', Auth::id())->with('city')->get();
+
+
+        return Inertia::render('PostManagement/UserDisplay', [
+            'posts' => $posts,
+            'route_name' => 'userPosts'
         ]);
     }
 
@@ -64,17 +75,50 @@ class PostsController extends Controller
         : back()->with('status', 'post added');
     }
 
-    public function show_current()
-    {
+    public function updateShow($post_slug){
 
-        $posts = Post::where('user_id', Auth::id())->with('city')->get();
+        $post = Post::where('slug',$post_slug)->with('subcategory','category','city', 'user')->first();
 
+        $cities = Cities::all();
+        $categories = Categories::with('subcategories')->get();
 
-        return Inertia::render('PostManagement/UserDisplay', [
-            'posts' => $posts,
-            'route_name' => 'userPosts'
+        return Inertia::render('PostManagement/ModifyPost', [
+            'post' => $post,
+            'cities' => $cities,
+            'categories' => $categories
         ]);
     }
+
+    public function update($post_slug, Request $request){
+
+        Validator::make($request->all(), [
+            'title' => ['required', 'string', 'max:255'],
+            'description' => ['required','string'],
+            'city' => ['required'],
+            'subcategory'=> ['required'],
+        ])->validateWithBag('modifyPost');
+
+        $post = Post::where('slug',$post_slug)->with('subcategory','category','city', 'user')->first();
+
+        $city = Cities::where('id', $request['city'])->first();
+
+        $subcategory = SubCategories::where('id', $request['subcategory'])->first();
+        $category = Categories::where('slug',$subcategory->category_slug)->first();
+
+        $post->forceFill([
+            'title' => $request['title'],
+            'description' => $request['description'],
+            'city_slug' => $city->slug,
+            'category_slug' => $category->slug,
+            'subcategory_slug' => $subcategory->slug,
+        ])->save();
+
+        return $request->wantsJson()
+        ? new JsonResponse('', 200)
+        : back()->with('status', 'post added');
+    }
+
+
 
     public function destroy(Request $request){
         Validator::make($request->all(), [

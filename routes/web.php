@@ -38,7 +38,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia\Inertia::render('Dashboard');
 })->name('dashboard');
 
-//adding post view
+//adding post
 //display
 Route::get('/AddPost', [PostsController::class, 'addShow'])->name('addpost')->middleware(['auth:sanctum', 'verified']);
 //adding
@@ -49,6 +49,13 @@ Route::get('/search/{search_content}', [SearchController::class, 'display'])->na
 
 //display current user posts
 Route::get('/your-posts', [PostsController::class, 'show_current'])->name('userPosts')->middleware(['auth:sanctum', 'verified']);
+
+
+//modify post
+//display
+Route::get('/modify/{post_slug}', [PostsController::class, 'updateShow'])->name('updatepost')->middleware(['auth:sanctum', 'verified']);
+//adding
+Route::put('/modify/{post_slug}', [PostsController::class, 'update'])->name('updatecurrentpost')->middleware(['auth:sanctum', 'verified']);
 
 //delete a post
 Route::delete('/your-post', [PostsController::class, 'destroy'])->name('destroy_post')->middleware(['auth:sanctum', 'verified']);

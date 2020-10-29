@@ -5,7 +5,7 @@
         </jet-nav-link>
         <div class="flex flex-row">
             <p classe="flex">{{configDateTime(post.created_at)}}</p>
-            <button classe="flex">modifier</button>
+            <button @click="Modify()" classe="flex">modifier</button>
             <button @click="Delete()" classe="flex">supprimer</button>
         </div>
         <jet-dialog-modal :show="this.ConfirmDeletion" @close="ConfirmDeletion = false">
@@ -60,6 +60,9 @@
         },
 
         methods:{
+            Modify(){
+                this.$inertia.visit(route('updatepost',{post_slug : this.post.slug}))
+            },
             Delete(){
                 this.ConfirmDeletion = true
             },

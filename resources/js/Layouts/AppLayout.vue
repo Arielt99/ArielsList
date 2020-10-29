@@ -20,7 +20,7 @@
                         </div>
                     </div>
                     <div class="hidden sm:flex sm:items-center sm:ml-6">
-                        <input v-model="searchContent" v-on:keyup.enter="search()" class="form-input rounded-md shadow-sm" placeholder="rechercher (dans tout)">
+                        <input name="search" v-model="searchContent" v-on:keyup.enter="search()" class="form-input rounded-md shadow-sm" placeholder="rechercher (dans tout)">
                         <button @click="search()">recherche</button>
                     </div>
                     <div v-if="!$page.user" class="hidden sm:flex sm:items-center sm:ml-6">
@@ -273,7 +273,7 @@
         methods: {
             search(){
                 if(this.searchContent != this.searchContent.length != 0){
-                 window.location.href = route('search',{search_content : this.searchContent})
+                 this.$inertia.visit(route('search',{search_content : this.searchContent}))
                 }
             },
 
