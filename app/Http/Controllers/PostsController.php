@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Categories;
 use App\Models\Cities;
+use App\Models\Favorites;
 use App\Models\Post;
 use App\Models\SubCategories;
 use Illuminate\Http\JsonResponse;
@@ -18,7 +19,6 @@ class PostsController extends Controller
     public function show($city_slug, $category_slug, $subcategory_slug, $post_slug)
     {
         $post = Post::where('slug',$post_slug)->where('city_slug', $city_slug)->where('category_slug', $category_slug)->where('subcategory_slug', $subcategory_slug)->with('subcategory','category','city','user')->first();
-
         if($post->user_id == Auth::id()){
             return Inertia::render('Posts', [
                 'post' => $post,
@@ -139,6 +139,7 @@ class PostsController extends Controller
 
         if(Auth::id() == $request->target_post['user_id']){
             Post::findOrFail($request->target_post['id'])->delete();
+            Favorites::where('post_slug', $request->target_post['slug'])->delete();
             return $request->wantsJson()
             ? new JsonResponse('', 200)
             : back()->with('status', 'post deleted');

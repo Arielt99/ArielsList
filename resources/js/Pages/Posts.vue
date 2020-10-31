@@ -69,6 +69,7 @@
 </template>
 
 <script>
+    import JetActionMessage from './../Jetstream/ActionMessage'
     import { ShareFacebook, ShareTwitter, ShareGooglePlus, ShareHatena, ShareLine } from 'vue-share-social'
     import AppLayout from './../Layouts/AppLayout'
     import JetNavLink from './../Jetstream/NavLink'
@@ -81,7 +82,8 @@
             ShareTwitter,
             ShareGooglePlus,
             ShareHatena,
-            ShareLine
+            ShareLine,
+            JetActionMessage
         },
         data () {
             return {

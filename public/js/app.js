@@ -4367,10 +4367,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue_share_social__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-share-social */ "./node_modules/vue-share-social/dist/index.common.js");
-/* harmony import */ var vue_share_social__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_share_social__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
-/* harmony import */ var _Jetstream_NavLink__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../Jetstream/NavLink */ "./resources/js/Jetstream/NavLink.vue");
+/* harmony import */ var _Jetstream_ActionMessage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../Jetstream/ActionMessage */ "./resources/js/Jetstream/ActionMessage.vue");
+/* harmony import */ var vue_share_social__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-share-social */ "./node_modules/vue-share-social/dist/index.common.js");
+/* harmony import */ var vue_share_social__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_share_social__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
+/* harmony import */ var _Jetstream_NavLink__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../Jetstream/NavLink */ "./resources/js/Jetstream/NavLink.vue");
 //
 //
 //
@@ -4441,18 +4442,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_1__["default"],
-    JetNavLink: _Jetstream_NavLink__WEBPACK_IMPORTED_MODULE_2__["default"],
-    ShareFacebook: vue_share_social__WEBPACK_IMPORTED_MODULE_0__["ShareFacebook"],
-    ShareTwitter: vue_share_social__WEBPACK_IMPORTED_MODULE_0__["ShareTwitter"],
-    ShareGooglePlus: vue_share_social__WEBPACK_IMPORTED_MODULE_0__["ShareGooglePlus"],
-    ShareHatena: vue_share_social__WEBPACK_IMPORTED_MODULE_0__["ShareHatena"],
-    ShareLine: vue_share_social__WEBPACK_IMPORTED_MODULE_0__["ShareLine"]
+    AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_2__["default"],
+    JetNavLink: _Jetstream_NavLink__WEBPACK_IMPORTED_MODULE_3__["default"],
+    ShareFacebook: vue_share_social__WEBPACK_IMPORTED_MODULE_1__["ShareFacebook"],
+    ShareTwitter: vue_share_social__WEBPACK_IMPORTED_MODULE_1__["ShareTwitter"],
+    ShareGooglePlus: vue_share_social__WEBPACK_IMPORTED_MODULE_1__["ShareGooglePlus"],
+    ShareHatena: vue_share_social__WEBPACK_IMPORTED_MODULE_1__["ShareHatena"],
+    ShareLine: vue_share_social__WEBPACK_IMPORTED_MODULE_1__["ShareLine"],
+    JetActionMessage: _Jetstream_ActionMessage__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   data: function data() {
     return {
