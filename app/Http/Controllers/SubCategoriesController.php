@@ -12,7 +12,7 @@ class SubCategoriesController extends Controller
 {
     public function display($city_slug, $category_slug, $subcategory_slug)
     {
-        $posts = Post::where('city_slug',$city_slug)->where('category_slug', $category_slug)->where('subcategory_slug', $subcategory_slug)->with('subcategory','category','city', 'user')->get();
+        $posts = Post::where('city_slug',$city_slug)->where('isActive',true)->where('category_slug', $category_slug)->where('subcategory_slug', $subcategory_slug)->with('subcategory','category','city', 'user')->get();
         $current_city = Cities::where('slug',$city_slug)->first();
         $current_category = Categories::where('slug',$category_slug)->first();
         $current_subcategory = SubCategories::where('slug',$subcategory_slug)->first();

@@ -10,7 +10,7 @@ class SearchController extends Controller
 {
     public function display($search_content)
     {
-        $posts = Post::where('title','like', '%'.$search_content.'%')->get();
+        $posts = Post::where('title','like', '%'.$search_content.'%')->where('isActive',true)->get();
         return Inertia::render('Display', [
             'posts' => $posts,
             'search_content' =>$search_content,

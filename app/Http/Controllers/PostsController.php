@@ -15,18 +15,26 @@ use Illuminate\Support\Facades\Validator;
 
 class PostsController extends Controller
 {
-    public function show($post_slug)
+    public function show($city_slug, $category_slug, $subcategory_slug, $post_slug)
     {
-        $post = Post::where('slug',$post_slug)->with('subcategory','category','city', 'user')->first();
+        $post = Post::where('slug',$post_slug)->where('city_slug', $city_slug)->where('category_slug', $category_slug)->where('subcategory_slug', $subcategory_slug)->with('subcategory','category','city', 'user')->first();
 
-        return Inertia::render('Posts', [
-            'post' => $post,
-        ]);
+        if($post->user_id == Auth::id()){
+            return Inertia::render('Posts', [
+                'post' => $post,
+            ]);
+        }elseif($post->isActive==true){
+            return Inertia::render('Posts', [
+                'post' => $post,
+            ]);
+        }
+
+
     }
 
     public function show_current()
     {
-        $posts = Post::where('user_id', Auth::id())->with('city')->get();
+        $posts = Post::where('user_id', Auth::id())->with('subcategory','category','city', 'user')->get();
 
 
         return Inertia::render('PostManagement/UserDisplay', [
@@ -53,6 +61,7 @@ class PostsController extends Controller
             'description' => ['required','string'],
             'city' => ['required'],
             'subcategory'=> ['required'],
+            'isActive'=> ['required', 'boolean']
         ])->validateWithBag('addPost');
 
         $city = Cities::where('id',$request->city)->first();
@@ -62,6 +71,7 @@ class PostsController extends Controller
 
         $post = new Post();
         $post->title = $request->title;
+        $post->isActive = $request->isActive;
         $post->slug = Str::slug(rand() . $request->title);
         $post->description = $request->description;
         $post->city_slug = $city->slug;
@@ -96,6 +106,7 @@ class PostsController extends Controller
             'description' => ['required','string'],
             'city' => ['required'],
             'subcategory'=> ['required'],
+            'isActive'=> ['required', 'boolean']
         ])->validateWithBag('modifyPost');
 
         $post = Post::where('slug',$post_slug)->with('subcategory','category','city', 'user')->first();
@@ -111,6 +122,7 @@ class PostsController extends Controller
             'city_slug' => $city->slug,
             'category_slug' => $category->slug,
             'subcategory_slug' => $subcategory->slug,
+            'isActive' => $request['isActive'],
         ])->save();
 
         return $request->wantsJson()

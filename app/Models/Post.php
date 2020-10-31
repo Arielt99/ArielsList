@@ -18,7 +18,7 @@ class Post extends Model
         'title',
         'slug',
         'description',
-        'state',
+        'isActive',
         'user_id',
         'city_slug',
         'category_slug',

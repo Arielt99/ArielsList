@@ -172,6 +172,10 @@
                             Add a Post
                         </jet-responsive-nav-link>
 
+                        <jet-responsive-nav-link :href="route('userPosts')">
+                            Your Posts
+                        </jet-responsive-nav-link>
+
                         <jet-responsive-nav-link :href="route('api-tokens.index')" :active="$page.currentRouteName == 'api-tokens.index'" v-if="$page.jetstream.hasApiFeatures">
                             API Tokens
                         </jet-responsive-nav-link>

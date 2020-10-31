@@ -26,7 +26,7 @@
                 <span v-if="post">
                     >
                 </span>
-                <jet-nav-link :href="route('post',{post_slug: post.slug})">
+                <jet-nav-link :href="route('post',{city_slug : post.city.slug, category_slug : post.category.slug, subcategory_slug : post.subcategory.slug, post_slug : post.slug})">
                     {{ post.title ?  ''+post.title : 'Annonce'}}
                 </jet-nav-link>
             </h2>

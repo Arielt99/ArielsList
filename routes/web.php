@@ -10,6 +10,7 @@ use App\Http\Controllers\SubCategoriesController;
 use App\Http\Controllers\UserDefaultCityController;
 use App\Http\Middleware\CategoryExistence;
 use App\Http\Middleware\CityExistence;
+use App\Http\Middleware\PostExistence;
 use App\Http\Middleware\SubCategoryExistence;
 use Laravel\Fortify\Features;
 /*
@@ -32,7 +33,7 @@ use Laravel\Fortify\Features;
 // })->name('test');
 
 Route::get('/', [CitiesController::class, 'list'])->name('home');
-Route::get('post/{post_slug}', [PostsController::class, 'show'])->name('post');
+Route::get('/{city_slug}/{category_slug}/{subcategory_slug}/{post_slug}', [PostsController::class, 'show'])->name('post')->middleware(CityExistence::class, CategoryExistence::class,SubCategoryExistence::class, PostExistence::class);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia\Inertia::render('Dashboard');

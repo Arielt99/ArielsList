@@ -5,29 +5,11 @@
                 <jet-nav-link :href="route('home')">
                     Home
                 </jet-nav-link>
-                <span v-if="post.city">
+                <span>
                     >
                 </span>
-                <jet-nav-link :href="route('city', {city_slug : post.city.slug})">
-                    {{ post.city ?  ''+post.city.name : 'Cities'}}
-                </jet-nav-link>
-                <span v-if="post.category">
-                    >
-                </span>
-                <jet-nav-link :href="route('category',{city_slug : post.city.slug, category_slug : post.category.slug})">
-                    {{ post.category ?  ''+post.category.name : 'Categories'}}
-                </jet-nav-link>
-                <span v-if="post.subcategory">
-                    >
-                </span>
-                <jet-nav-link :href="route('subcategory',{city_slug : post.city.slug, category_slug : post.category.slug, subcategory_slug : post.subcategory.slug})">
-                    {{ post.subcategory ?  ''+post.subcategory.name : ''}}
-                </jet-nav-link>
-                <span v-if="post">
-                    >
-                </span>
-                <jet-nav-link :href="route('post',{post_slug: post.slug})">
-                    {{ post.title ?  ''+post.title : 'Annonce'}}
+                <jet-nav-link :href="route('userPosts')">
+                    Vos Annonces
                 </jet-nav-link>
                 <span>
                     >
@@ -73,6 +55,11 @@
                             </optgroup>
                         </select>
                         <jet-input-error :message="modifyPost.error('subcategory')" class="mt-2" />
+                    </div>
+
+                    <div class="col-span-6 sm:col-span-4">
+                        <jet-label for="isActive" value="Visible"/>
+                        <input v-model="modifyPost.isActive" type="checkbox" ref="isActive">
                     </div>
 
                     <jet-action-message :on="modifyPost.recentlySuccessful" class="mr-3">
@@ -122,6 +109,7 @@
                     description: this.post.description,
                     city: this.post.city.id,
                     subcategory: this.post.subcategory.id,
+                    isActive: this.post.isActive,
                 }, {
                     bag: 'modifyPost',
                 }),
@@ -139,6 +127,7 @@
                     description: this.post.description,
                     city: this.post.city.id,
                     subcategory: this.post.subcategory.id,
+                    isActive: this.post.isActive,
                 }, {
                     bag: 'modifyPost',
                 })

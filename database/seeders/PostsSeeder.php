@@ -25,7 +25,7 @@ class PostsSeeder extends Seeder
                 'title' => $obj->title,
                 'slug' => Str::slug(rand() . $obj->title),
                 'description' => $obj->description,
-                'state' => $obj->state,
+                'isActive' => $obj->isActive,
                 'user_id' => $obj->user_id,
                 'city_slug' => $obj->city_slug,
                 'category_slug' => $obj->category_slug,

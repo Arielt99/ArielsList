@@ -2,7 +2,21 @@
     <app-layout>
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Ajout d'une annonce
+                <jet-nav-link :href="route('home')">
+                    Home
+                </jet-nav-link>
+                <span>
+                    >
+                </span>
+                <jet-nav-link :href="route('userPosts')">
+                    Vos Annonces
+                </jet-nav-link>
+                <span>
+                    >
+                </span>
+                <jet-nav-link :href="route('addpost')">
+                    Ajout d'une annonce
+                </jet-nav-link>
             </h2>
         </template>
 
@@ -43,6 +57,11 @@
                         <jet-input-error :message="newPost.error('subcategory')" class="mt-2" />
                     </div>
 
+                    <div class="col-span-6 sm:col-span-4">
+                        <jet-label for="isActive" value="Visible"/>
+                        <input v-model="newPost.isActive" type="checkbox" ref="isActive">
+                    </div>
+
                     <jet-action-message :on="newPost.recentlySuccessful" class="mr-3">
                         Saved.
                     </jet-action-message>
@@ -80,14 +99,13 @@
 
         data() {
             return {
-                selectedSubcategory:null,
-                selectedCity:null,
                 newPost: this.$inertia.form({
                     '_method': 'PUT',
                     title: '',
                     description:'',
                     subcategory: '',
                     city: '',
+                    isActive: true,
                 }, {
                     bag: 'addPost',
                 }),
@@ -96,6 +114,15 @@
 
         methods: {
             addPost() {
+            if(this.newPost.isActive == true){
+                this.newPost.isActive = 1
+            }
+            else if(this.newPost.isActive == false){
+                this.newPost.isActive = 0
+            }
+            else{
+                console.log('ah', this.newPost.isActive)
+            }
             this.newPost.put(route('addNewPost'), {
                 preserveScroll: true
             }).then(() => {
