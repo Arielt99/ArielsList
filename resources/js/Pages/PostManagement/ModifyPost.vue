@@ -5,13 +5,13 @@
                 <jet-nav-link :href="route('home')">
                     Home
                 </jet-nav-link>
-                <span>
+                <span class="inline-flex items-center">
                     >
                 </span>
                 <jet-nav-link :href="route('userPosts')">
                     Vos Annonces
                 </jet-nav-link>
-                <span>
+                <span class="inline-flex items-center">
                     >
                 </span>
                 <jet-nav-link :href="route('updatepost',{post_slug : post.slug})">

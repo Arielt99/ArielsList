@@ -48,9 +48,9 @@ Route::put('/AddPost', [PostsController::class, 'store'])->name('addNewPost')->m
 //search post in everything
 Route::get('/search/{search_content}', [SearchController::class, 'display'])->name('search');
 
+
 //display current user posts
 Route::get('/your-posts', [PostsController::class, 'show_current'])->name('userPosts')->middleware(['auth:sanctum', 'verified']);
-
 
 //modify post
 //display

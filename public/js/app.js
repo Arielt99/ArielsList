@@ -3214,6 +3214,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -3786,6 +3798,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
@@ -4257,6 +4272,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -4266,7 +4291,8 @@ __webpack_require__.r(__webpack_exports__);
       page: 1,
       perPage: 10,
       pages: [],
-      active: true
+      active: true,
+      Search: ''
     };
   },
   components: {
@@ -4277,7 +4303,7 @@ __webpack_require__.r(__webpack_exports__);
   props: ['posts', 'current_city', 'current_category', 'current_subcategory', 'search_content', 'route_name'],
   methods: {
     setPages: function setPages() {
-      var numberOfPages = Math.ceil(this.posts.length / this.perPage);
+      var numberOfPages = Math.ceil(this.ResearchResult.length / this.perPage);
       this.pages = [];
 
       for (var index = 1; index <= numberOfPages; index++) {
@@ -4289,12 +4315,19 @@ __webpack_require__.r(__webpack_exports__);
       var perPage = this.perPage;
       var from = page * perPage - perPage;
       var to = page * perPage;
-      return this.posts.slice(from, to);
+      return this.ResearchResult.slice(from, to);
     }
   },
   computed: {
+    ResearchResult: function ResearchResult() {
+      var _this = this;
+
+      return this.posts.filter(function (post) {
+        return post.title.toLowerCase().includes(_this.Search.toLowerCase());
+      });
+    },
     PostResearch: function PostResearch() {
-      return this.paginate(this.posts);
+      return this.paginate(this.ResearchResult);
     }
   },
   created: function created() {
@@ -48848,57 +48881,86 @@ var render = function() {
               })
             ]),
             _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "hidden sm:flex sm:items-center sm:ml-6" },
-              [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.searchContent,
-                      expression: "searchContent"
+            _c("div", { staticClass: "pt-2 relative mx-auto text-gray-600" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.searchContent,
+                    expression: "searchContent"
+                  }
+                ],
+                staticClass:
+                  "border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none",
+                attrs: {
+                  type: "search",
+                  name: "search",
+                  placeholder: "rechercher (dans tout)"
+                },
+                domProps: { value: _vm.searchContent },
+                on: {
+                  keyup: function($event) {
+                    if (
+                      !$event.type.indexOf("key") &&
+                      _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+                    ) {
+                      return null
                     }
-                  ],
-                  staticClass: "form-input rounded-md shadow-sm",
-                  attrs: {
-                    name: "search",
-                    placeholder: "rechercher (dans tout)"
+                    return _vm.search()
                   },
-                  domProps: { value: _vm.searchContent },
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.searchContent = $event.target.value
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "absolute right-0 top-0 mt-5 mr-4",
                   on: {
-                    keyup: function($event) {
-                      if (
-                        !$event.type.indexOf("key") &&
-                        _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-                      ) {
-                        return null
-                      }
+                    click: function($event) {
                       return _vm.search()
-                    },
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.searchContent = $event.target.value
                     }
                   }
-                }),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    on: {
-                      click: function($event) {
-                        return _vm.search()
+                },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "text-gray-600 h-4 w-4 fill-current",
+                      staticStyle: {
+                        "enable-background": "new 0 0 56.966 56.966"
+                      },
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        "xmlns:xlink": "http://www.w3.org/1999/xlink",
+                        version: "1.1",
+                        id: "Capa_1",
+                        x: "0px",
+                        y: "0px",
+                        viewBox: "0 0 56.966 56.966",
+                        "xml:space": "preserve",
+                        width: "512px",
+                        height: "512px"
                       }
-                    }
-                  },
-                  [_vm._v("recherche")]
-                )
-              ]
-            ),
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z"
+                        }
+                      })
+                    ]
+                  )
+                ]
+              )
+            ]),
             _vm._v(" "),
             !_vm.$page.user
               ? _c(
@@ -50407,7 +50469,9 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _vm.current_city
-                    ? _c("span", [_vm._v("\n                >\n            ")])
+                    ? _c("span", { staticClass: "inline-flex items-center" }, [
+                        _vm._v("\n                >\n            ")
+                      ])
                     : _vm._e(),
                   _vm._v(" "),
                   _c(
@@ -50578,9 +50642,15 @@ var render = function() {
                     "div",
                     [
                       _vm.current_city
-                        ? _c("span", [
-                            _vm._v("\n                    >\n                ")
-                          ])
+                        ? _c(
+                            "span",
+                            { staticClass: "inline-flex items-center" },
+                            [
+                              _vm._v(
+                                "\n                    >\n                "
+                              )
+                            ]
+                          )
                         : _vm._e(),
                       _vm._v(" "),
                       _vm.current_city
@@ -50608,9 +50678,15 @@ var render = function() {
                         : _vm._e(),
                       _vm._v(" "),
                       _vm.current_category
-                        ? _c("span", [
-                            _vm._v("\n                    >\n                ")
-                          ])
+                        ? _c(
+                            "span",
+                            { staticClass: "inline-flex items-center" },
+                            [
+                              _vm._v(
+                                "\n                    >\n                "
+                              )
+                            ]
+                          )
                         : _vm._e(),
                       _vm._v(" "),
                       _vm.current_category
@@ -50639,9 +50715,15 @@ var render = function() {
                         : _vm._e(),
                       _vm._v(" "),
                       _vm.current_subcategory
-                        ? _c("span", [
-                            _vm._v("\n                    >\n                ")
-                          ])
+                        ? _c(
+                            "span",
+                            { staticClass: "inline-flex items-center" },
+                            [
+                              _vm._v(
+                                "\n                    >\n                "
+                              )
+                            ]
+                          )
                         : _vm._e(),
                       _vm._v(" "),
                       _vm.current_subcategory
@@ -50678,11 +50760,15 @@ var render = function() {
                         "div",
                         [
                           _vm.search_content
-                            ? _c("span", [
-                                _vm._v(
-                                  "\n                    >\n                "
-                                )
-                              ])
+                            ? _c(
+                                "span",
+                                { staticClass: "inline-flex items-center" },
+                                [
+                                  _vm._v(
+                                    "\n                    >\n                "
+                                  )
+                                ]
+                              )
                             : _vm._e(),
                           _vm._v(" "),
                           _vm.search_content
@@ -50739,6 +50825,14 @@ var render = function() {
                     }),
                     1
                   )
+                : _vm._e(),
+              _vm._v(" "),
+              !_vm.posts[0]
+                ? _c("div", { staticClass: "text-center" }, [
+                    _vm._v(
+                      "\n                    wow so empty !\n                "
+                    )
+                  ])
                 : _vm._e()
             ]
           )
@@ -50990,7 +51084,9 @@ var render = function() {
                     _vm._v("\n                Home\n            ")
                   ]),
                   _vm._v(" "),
-                  _c("span", [_vm._v("\n                >\n            ")]),
+                  _c("span", { staticClass: "inline-flex items-center" }, [
+                    _vm._v("\n                >\n            ")
+                  ]),
                   _vm._v(" "),
                   _c(
                     "jet-nav-link",
@@ -50998,7 +51094,9 @@ var render = function() {
                     [_vm._v("\n                Vos Annonces\n            ")]
                   ),
                   _vm._v(" "),
-                  _c("span", [_vm._v("\n                >\n            ")]),
+                  _c("span", { staticClass: "inline-flex items-center" }, [
+                    _vm._v("\n                >\n            ")
+                  ]),
                   _vm._v(" "),
                   _c(
                     "jet-nav-link",
@@ -51372,7 +51470,9 @@ var render = function() {
                     _vm._v("\n                Home\n            ")
                   ]),
                   _vm._v(" "),
-                  _c("span", [_vm._v("\n                >\n            ")]),
+                  _c("span", { staticClass: "inline-flex items-center" }, [
+                    _vm._v("\n                >\n            ")
+                  ]),
                   _vm._v(" "),
                   _c(
                     "jet-nav-link",
@@ -51380,7 +51480,9 @@ var render = function() {
                     [_vm._v("\n                Vos Annonces\n            ")]
                   ),
                   _vm._v(" "),
-                  _c("span", [_vm._v("\n                >\n            ")]),
+                  _c("span", { staticClass: "inline-flex items-center" }, [
+                    _vm._v("\n                >\n            ")
+                  ]),
                   _vm._v(" "),
                   _c(
                     "jet-nav-link",
@@ -51749,77 +51851,106 @@ var render = function() {
           key: "header",
           fn: function() {
             return [
-              _c(
-                "h2",
-                {
-                  staticClass:
-                    "flex flex-row font-semibold text-xl text-gray-800 leading-tight"
-                },
-                [
-                  _c("jet-nav-link", { attrs: { href: _vm.route("home") } }, [
-                    _vm._v("\n                Home\n            ")
-                  ]),
-                  _vm._v(" "),
-                  _vm.route_name == "search"
-                    ? _c(
-                        "div",
-                        [
-                          _vm.search_content
-                            ? _c("span", [
-                                _vm._v(
-                                  "\n                    >\n                "
-                                )
-                              ])
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _vm.search_content
-                            ? _c(
-                                "jet-nav-link",
-                                {
-                                  attrs: {
-                                    href: _vm.route("search", {
-                                      search_content: _vm.search_content
-                                    })
-                                  }
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                    resultat pour " +
-                                      _vm._s(_vm.search_content) +
-                                      "\n                "
-                                  )
-                                ]
-                              )
-                            : _vm._e()
+              _c("div", { staticClass: "flex flex-row justify-between" }, [
+                _c(
+                  "h2",
+                  {
+                    staticClass:
+                      "flex flex-row font-semibold text-xl text-gray-800 leading-tight"
+                  },
+                  [
+                    _c("jet-nav-link", { attrs: { href: _vm.route("home") } }, [
+                      _vm._v("\n                    Home\n                ")
+                    ]),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "inline-flex items-center" }, [
+                      _vm._v("\n                    >\n                ")
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "jet-nav-link",
+                      { attrs: { href: _vm.route("userPosts") } },
+                      [
+                        _vm._v(
+                          "\n                    Vos Annonces\n                "
+                        )
+                      ]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("div", [
+                  _c(
+                    "div",
+                    { staticClass: "pt-2 relative mx-auto text-gray-600" },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.Search,
+                            expression: "Search"
+                          }
                         ],
-                        1
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.route_name == "userPosts"
-                    ? _c(
-                        "div",
+                        staticClass:
+                          "border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none",
+                        attrs: {
+                          type: "search",
+                          name: "search",
+                          placeholder: "rechercher (dans tout)"
+                        },
+                        domProps: { value: _vm.Search },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.Search = $event.target.value
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        { staticClass: "absolute right-0 top-0 mt-5 mr-4" },
                         [
-                          _c("span", [
-                            _vm._v("\n                    >\n                ")
-                          ]),
-                          _vm._v(" "),
                           _c(
-                            "jet-nav-link",
-                            { attrs: { href: _vm.route("userPosts") } },
+                            "svg",
+                            {
+                              staticClass: "text-gray-600 h-4 w-4 fill-current",
+                              staticStyle: {
+                                "enable-background": "new 0 0 56.966 56.966"
+                              },
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                "xmlns:xlink": "http://www.w3.org/1999/xlink",
+                                version: "1.1",
+                                id: "Capa_1",
+                                x: "0px",
+                                y: "0px",
+                                viewBox: "0 0 56.966 56.966",
+                                "xml:space": "preserve",
+                                width: "512px",
+                                height: "512px"
+                              }
+                            },
                             [
-                              _vm._v(
-                                "\n                    Vos Annonces\n                "
-                              )
+                              _c("path", {
+                                attrs: {
+                                  d:
+                                    "M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z"
+                                }
+                              })
                             ]
                           )
-                        ],
-                        1
+                        ]
                       )
-                    : _vm._e()
-                ],
-                1
-              )
+                    ]
+                  )
+                ])
+              ])
             ]
           },
           proxy: true
@@ -51848,6 +51979,14 @@ var render = function() {
                     }),
                     1
                   )
+                : _vm._e(),
+              _vm._v(" "),
+              !_vm.posts[0]
+                ? _c("div", { staticClass: "text-center" }, [
+                    _vm._v(
+                      "\n                    wow so empty !\n                "
+                    )
+                  ])
                 : _vm._e()
             ]
           )
@@ -52006,7 +52145,9 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _vm.post.city
-                    ? _c("span", [_vm._v("\n                >\n            ")])
+                    ? _c("span", { staticClass: "inline-flex items-center" }, [
+                        _vm._v("\n                >\n            ")
+                      ])
                     : _vm._e(),
                   _vm._v(" "),
                   _c(
@@ -52030,7 +52171,9 @@ var render = function() {
                   ),
                   _vm._v(" "),
                   _vm.post.category
-                    ? _c("span", [_vm._v("\n                >\n            ")])
+                    ? _c("span", { staticClass: "inline-flex items-center" }, [
+                        _vm._v("\n                >\n            ")
+                      ])
                     : _vm._e(),
                   _vm._v(" "),
                   _c(
@@ -52057,7 +52200,9 @@ var render = function() {
                   ),
                   _vm._v(" "),
                   _vm.post.subcategory
-                    ? _c("span", [_vm._v("\n                >\n            ")])
+                    ? _c("span", { staticClass: "inline-flex items-center" }, [
+                        _vm._v("\n                >\n            ")
+                      ])
                     : _vm._e(),
                   _vm._v(" "),
                   _c(
@@ -52085,7 +52230,9 @@ var render = function() {
                   ),
                   _vm._v(" "),
                   _vm.post
-                    ? _c("span", [_vm._v("\n                >\n            ")])
+                    ? _c("span", { staticClass: "inline-flex items-center" }, [
+                        _vm._v("\n                >\n            ")
+                      ])
                     : _vm._e(),
                   _vm._v(" "),
                   _c(

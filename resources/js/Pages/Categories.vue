@@ -5,7 +5,7 @@
                 <jet-nav-link :href="route('home')">
                     Home
                 </jet-nav-link>
-                <span v-if="current_city">
+                <span class="inline-flex items-center" v-if="current_city">
                     >
                 </span>
                 <jet-nav-link :href="route('city', {city_slug : current_city.slug})">

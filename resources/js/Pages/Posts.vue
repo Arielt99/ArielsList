@@ -5,25 +5,25 @@
                 <jet-nav-link :href="route('home')">
                     Home
                 </jet-nav-link>
-                <span v-if="post.city">
+                <span class="inline-flex items-center" v-if="post.city">
                     >
                 </span>
                 <jet-nav-link :href="route('city', {city_slug : post.city.slug})">
                     {{ post.city ?  ''+post.city.name : 'Cities'}}
                 </jet-nav-link>
-                <span v-if="post.category">
+                <span class="inline-flex items-center" v-if="post.category">
                     >
                 </span>
                 <jet-nav-link :href="route('category',{city_slug : post.city.slug, category_slug : post.category.slug})">
                     {{ post.category ?  ''+post.category.name : 'Categories'}}
                 </jet-nav-link>
-                <span v-if="post.subcategory">
+                <span class="inline-flex items-center" v-if="post.subcategory">
                     >
                 </span>
                 <jet-nav-link :href="route('subcategory',{city_slug : post.city.slug, category_slug : post.category.slug, subcategory_slug : post.subcategory.slug})">
                     {{ post.subcategory ?  ''+post.subcategory.name : ''}}
                 </jet-nav-link>
-                <span v-if="post">
+                <span class="inline-flex items-center" v-if="post">
                     >
                 </span>
                 <jet-nav-link :href="route('post',{city_slug : post.city.slug, category_slug : post.category.slug, subcategory_slug : post.subcategory.slug, post_slug : post.slug})">
