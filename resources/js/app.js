@@ -8,6 +8,10 @@ import PortalVue from 'portal-vue';
 import moment from 'moment'
 Vue.prototype.$moment = moment
 
+import VueShareSocial from 'vue-share-social'
+
+Vue.use(VueShareSocial)
+
 Vue.mixin({ methods: { route } });
 Vue.use(InertiaApp);
 Vue.use(InertiaForm);

@@ -16,7 +16,7 @@
                 <div>        <!-- Research -->
                     <div class="pt-2 relative mx-auto text-gray-600">
                         <input class="border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
-                        type="search" name="search" v-model="Search"  placeholder="rechercher (dans tout)">
+                        type="search" name="search" v-model="Search"  placeholder="rechercher">
                         <button class="absolute right-0 top-0 mt-5 mr-4">
                         <svg class="text-gray-600 h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg"
                             xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px"
@@ -88,7 +88,7 @@
             JetNavLink,
             CurrentUserPostCard
         },
-        props: ['posts','current_city','current_category','current_subcategory','search_content','route_name'],
+        props: ['posts','cities','current_city','current_category','current_subcategory','search_content','route_name'],
 
         methods:{
 		setPages () {

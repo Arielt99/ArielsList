@@ -34,26 +34,33 @@
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                {{post.title}}
-                <br>
-                {{post.description}}
-                <br>
-                category : {{post.category.name}}
-                <br>
-                subcategory : {{post.subcategory.name}}
-                <br>
-                city : {{post.city.name}}
-                <br>
-                posted by : {{post.user.name}}
-                {{configDateTime(post.created_at)}}
-                <br>
-                last update : {{configDateTime(post.updated_at)}}
-                <button v-if="$page.user">
-                    ajouter aux favoris
-                </button>
-                <button v-if="$page.user">
-                    masquer
-                </button>
+                    <h2 class="font-semibold text-xl text-gray-800 leading-tight text-center py-5 inline-block align-middle items-center w-full">{{post.title}}</h2>
+                    <div class="px-8">
+                        {{post.description}}
+                        <br>
+                        category : {{post.category.name}}
+                        <br>
+                        subcategory : {{post.subcategory.name}}
+                        <br>
+                        city : {{post.city.name}}
+                        <br>
+                        posted by : {{post.user.name}}
+                        {{configDateTime(post.created_at)}}
+                        <br>
+                        last update : {{configDateTime(post.updated_at)}}
+                    </div>
+                    <button v-if="$page.user">
+                        ajouter aux favoris
+                    </button>
+                    <button v-if="$page.user">
+                        masquer
+                    </button>
+                    <div>
+                        <share-facebook id="share" :url="currentURL"/>
+                        <share-twitter id="share" :url="currentURL"/>
+                        <share-google-plus id="share" :url="currentURL"/>
+                        <share-line id="share" :url="currentURL"/>
+                    </div>
                 </div>
             </div>
 
@@ -62,6 +69,7 @@
 </template>
 
 <script>
+    import { ShareFacebook, ShareTwitter, ShareGooglePlus, ShareHatena, ShareLine } from 'vue-share-social'
     import AppLayout from './../Layouts/AppLayout'
     import JetNavLink from './../Jetstream/NavLink'
 
@@ -69,6 +77,16 @@
         components: {
             AppLayout,
             JetNavLink,
+            ShareFacebook,
+            ShareTwitter,
+            ShareGooglePlus,
+            ShareHatena,
+            ShareLine
+        },
+        data () {
+            return {
+                currentURL: window.location.href,
+            }
         },
         props: ['post'],
         methods:{
@@ -78,3 +96,13 @@
         },
     }
 </script>
+
+<style>
+#share > svg{
+    width: 80% !important;
+    height: 80% !important;
+    margin: auto;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+</style>
