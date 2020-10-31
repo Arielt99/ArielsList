@@ -58,6 +58,14 @@ class Post extends Model
     }
 
     /**
+     * get the subcategory
+     */
+    public function favorite()
+    {
+        return $this->hasMany('App\Models\Favorites', 'post_slug', 'slug');
+    }
+
+    /**
      * The table associated with the model.
      *
      * @var array

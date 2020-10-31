@@ -3226,6 +3226,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -3801,6 +3809,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -3914,6 +3930,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Jetstream_Input__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../../Jetstream/Input */ "./resources/js/Jetstream/Input.vue");
 /* harmony import */ var _Jetstream_InputError__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../Jetstream/InputError */ "./resources/js/Jetstream/InputError.vue");
 /* harmony import */ var _Jetstream_Label__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../../Jetstream/Label */ "./resources/js/Jetstream/Label.vue");
+/* harmony import */ var _Jetstream_NavLink__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./../../Jetstream/NavLink */ "./resources/js/Jetstream/NavLink.vue");
 //
 //
 //
@@ -3990,6 +4007,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 
@@ -4005,7 +4023,8 @@ __webpack_require__.r(__webpack_exports__);
     JetInput: _Jetstream_Input__WEBPACK_IMPORTED_MODULE_4__["default"],
     JetFormSection: _Jetstream_FormSection__WEBPACK_IMPORTED_MODULE_2__["default"],
     JetInputError: _Jetstream_InputError__WEBPACK_IMPORTED_MODULE_5__["default"],
-    JetLabel: _Jetstream_Label__WEBPACK_IMPORTED_MODULE_6__["default"]
+    JetLabel: _Jetstream_Label__WEBPACK_IMPORTED_MODULE_6__["default"],
+    JetNavLink: _Jetstream_NavLink__WEBPACK_IMPORTED_MODULE_7__["default"]
   },
   props: ['cities', 'categories'],
   data: function data() {
@@ -4437,13 +4456,24 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      currentURL: window.location.href
+      currentURL: window.location.href,
+      addFav: this.$inertia.form({
+        '_method': 'PUT',
+        post_slug: this.post.slug
+      }, {
+        bag: 'addFavorite'
+      })
     };
   },
   props: ['post'],
   methods: {
     configDateTime: function configDateTime(date) {
       return this.$moment(date).startOf('second').locale('fr').fromNow();
+    },
+    addToFavorite: function addToFavorite() {
+      this.addFav.put(route('addfavorite'), {
+        preserveScroll: true
+      });
     }
   }
 });
@@ -49208,6 +49238,18 @@ var render = function() {
                                       ]
                                     ),
                                     _vm._v(" "),
+                                    _c(
+                                      "jet-dropdown-link",
+                                      {
+                                        attrs: { href: _vm.route("favorite") }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n                                    Favorites\n                                "
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
                                     _vm.$page.jetstream.hasApiFeatures
                                       ? _c(
                                           "jet-dropdown-link",
@@ -49418,7 +49460,7 @@ var render = function() {
                             ],
                             null,
                             false,
-                            4275514166
+                            3228157247
                           )
                         })
                       ],
@@ -49592,6 +49634,16 @@ var render = function() {
                           [
                             _vm._v(
                               "\n                        Your Posts\n                    "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "jet-responsive-nav-link",
+                          { attrs: { href: _vm.route("favorite") } },
+                          [
+                            _vm._v(
+                              "\n                        Favorites\n                    "
                             )
                           ]
                         ),
@@ -50707,122 +50759,125 @@ var render = function() {
                     _vm._v("\n                Home\n            ")
                   ]),
                   _vm._v(" "),
-                  _c(
-                    "div",
-                    [
-                      _vm.current_city
-                        ? _c(
-                            "span",
-                            { staticClass: "inline-flex items-center" },
-                            [
-                              _vm._v(
-                                "\n                    >\n                "
+                  _vm.current_city
+                    ? _c(
+                        "div",
+                        [
+                          _vm.current_city
+                            ? _c(
+                                "span",
+                                { staticClass: "inline-flex items-center" },
+                                [
+                                  _vm._v(
+                                    "\n                    >\n                "
+                                  )
+                                ]
                               )
-                            ]
-                          )
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _vm.current_city
-                        ? _c(
-                            "jet-nav-link",
-                            {
-                              attrs: {
-                                href: _vm.route("city", {
-                                  city_slug: _vm.current_city.slug
-                                })
-                              }
-                            },
-                            [
-                              _vm._v(
-                                "\n                    " +
-                                  _vm._s(
-                                    _vm.current_city
-                                      ? "" + _vm.current_city.name
-                                      : "Cities"
-                                  ) +
-                                  "\n                "
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.current_city
+                            ? _c(
+                                "jet-nav-link",
+                                {
+                                  attrs: {
+                                    href: _vm.route("city", {
+                                      city_slug: _vm.current_city.slug
+                                    })
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                    " +
+                                      _vm._s(
+                                        _vm.current_city
+                                          ? "" + _vm.current_city.name
+                                          : "Cities"
+                                      ) +
+                                      "\n                "
+                                  )
+                                ]
                               )
-                            ]
-                          )
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _vm.current_category
-                        ? _c(
-                            "span",
-                            { staticClass: "inline-flex items-center" },
-                            [
-                              _vm._v(
-                                "\n                    >\n                "
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.current_category
+                            ? _c(
+                                "span",
+                                { staticClass: "inline-flex items-center" },
+                                [
+                                  _vm._v(
+                                    "\n                    >\n                "
+                                  )
+                                ]
                               )
-                            ]
-                          )
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _vm.current_category
-                        ? _c(
-                            "jet-nav-link",
-                            {
-                              attrs: {
-                                href: _vm.route("category", {
-                                  city_slug: _vm.current_city.slug,
-                                  category_slug: _vm.current_category.slug
-                                })
-                              }
-                            },
-                            [
-                              _vm._v(
-                                "\n                    " +
-                                  _vm._s(
-                                    _vm.current_category
-                                      ? "" + _vm.current_category.name
-                                      : "Categories"
-                                  ) +
-                                  "\n                "
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.current_category
+                            ? _c(
+                                "jet-nav-link",
+                                {
+                                  attrs: {
+                                    href: _vm.route("category", {
+                                      city_slug: _vm.current_city.slug,
+                                      category_slug: _vm.current_category.slug
+                                    })
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                    " +
+                                      _vm._s(
+                                        _vm.current_category
+                                          ? "" + _vm.current_category.name
+                                          : "Categories"
+                                      ) +
+                                      "\n                "
+                                  )
+                                ]
                               )
-                            ]
-                          )
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _vm.current_subcategory
-                        ? _c(
-                            "span",
-                            { staticClass: "inline-flex items-center" },
-                            [
-                              _vm._v(
-                                "\n                    >\n                "
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.current_subcategory
+                            ? _c(
+                                "span",
+                                { staticClass: "inline-flex items-center" },
+                                [
+                                  _vm._v(
+                                    "\n                    >\n                "
+                                  )
+                                ]
                               )
-                            ]
-                          )
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _vm.current_subcategory
-                        ? _c(
-                            "jet-nav-link",
-                            {
-                              attrs: {
-                                href: _vm.route("subcategory", {
-                                  city_slug: _vm.current_city.slug,
-                                  category_slug: _vm.current_category.slug,
-                                  subcategory_slug: _vm.current_subcategory.slug
-                                })
-                              }
-                            },
-                            [
-                              _vm._v(
-                                "\n                    " +
-                                  _vm._s(
-                                    _vm.current_subcategory
-                                      ? "" + _vm.current_subcategory.name
-                                      : ""
-                                  ) +
-                                  "\n                "
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.current_subcategory
+                            ? _c(
+                                "jet-nav-link",
+                                {
+                                  attrs: {
+                                    href: _vm.route("subcategory", {
+                                      city_slug: _vm.current_city.slug,
+                                      category_slug: _vm.current_category.slug,
+                                      subcategory_slug:
+                                        _vm.current_subcategory.slug
+                                    })
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                    " +
+                                      _vm._s(
+                                        _vm.current_subcategory
+                                          ? "" + _vm.current_subcategory.name
+                                          : ""
+                                      ) +
+                                      "\n                "
+                                  )
+                                ]
                               )
-                            ]
-                          )
-                        : _vm._e()
-                    ],
-                    1
-                  ),
+                            : _vm._e()
+                        ],
+                        1
+                      )
+                    : _vm._e(),
                   _vm._v(" "),
                   _vm.route_name == "search"
                     ? _c(
@@ -50859,6 +50914,34 @@ var render = function() {
                                 ]
                               )
                             : _vm._e()
+                        ],
+                        1
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.route_name == "favorite"
+                    ? _c(
+                        "div",
+                        [
+                          _c(
+                            "span",
+                            { staticClass: "inline-flex items-center" },
+                            [
+                              _vm._v(
+                                "\n                    >\n                "
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "jet-nav-link",
+                            { attrs: { href: _vm.route("favorite") } },
+                            [
+                              _vm._v(
+                                "\n                    Vos favoris\n                "
+                              )
+                            ]
+                          )
                         ],
                         1
                       )
@@ -52358,7 +52441,12 @@ var render = function() {
                       "button",
                       {
                         staticClass:
-                          "inline-flex items-center px-3 py-1 my-2 mx-1 bg-yellow-300 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-yellow-200 active:bg-yellow-400 focus:outline-none focus:border-yellow-400 focus:shadow-outline-gray transition ease-in-out duration-150"
+                          "inline-flex items-center px-3 py-1 my-2 mx-1 bg-yellow-300 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-yellow-200 active:bg-yellow-400 focus:outline-none focus:border-yellow-400 focus:shadow-outline-gray transition ease-in-out duration-150",
+                        on: {
+                          click: function($event) {
+                            return _vm.addToFavorite()
+                          }
+                        }
                       },
                       [
                         _vm._v(

@@ -17,7 +17,7 @@ class PostsController extends Controller
 {
     public function show($city_slug, $category_slug, $subcategory_slug, $post_slug)
     {
-        $post = Post::where('slug',$post_slug)->where('city_slug', $city_slug)->where('category_slug', $category_slug)->where('subcategory_slug', $subcategory_slug)->with('subcategory','category','city', 'user')->first();
+        $post = Post::where('slug',$post_slug)->where('city_slug', $city_slug)->where('category_slug', $category_slug)->where('subcategory_slug', $subcategory_slug)->with('subcategory','category','city','user')->first();
 
         if($post->user_id == Auth::id()){
             return Inertia::render('Posts', [

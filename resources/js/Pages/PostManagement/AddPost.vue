@@ -82,7 +82,7 @@
     import JetInput from './../../Jetstream/Input'
     import JetInputError from './../../Jetstream/InputError'
     import JetLabel from './../../Jetstream/Label'
-
+    import JetNavLink from './../../Jetstream/NavLink'
 
     export default {
         components: {
@@ -93,6 +93,7 @@
             JetFormSection,
             JetInputError,
             JetLabel,
+            JetNavLink
         },
 
         props:['cities', 'categories'],

@@ -5,7 +5,7 @@
                 <jet-nav-link :href="route('home')">
                     Home
                 </jet-nav-link>
-                <div>
+                <div v-if="current_city">
                     <span class="inline-flex items-center" v-if="current_city">
                         >
                     </span>
@@ -31,6 +31,14 @@
                     </span>
                     <jet-nav-link v-if="search_content" :href="route('search', {search_content : search_content})">
                         resultat pour {{search_content}}
+                    </jet-nav-link>
+                </div>
+                <div v-if="route_name == 'favorite'">
+                    <span class="inline-flex items-center">
+                        >
+                    </span>
+                    <jet-nav-link :href="route('favorite')">
+                        Vos favoris
                     </jet-nav-link>
                 </div>
             </h2>

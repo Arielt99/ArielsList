@@ -36,7 +36,7 @@
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                     <h2 class="font-bold text-3xl text-gray-800 leading-tight text-center py-5 inline-block align-middle items-center w-full">{{post.title}}</h2>
                     <div class="flex justify-end">
-                        <button v-if="$page.user" class="inline-flex items-center px-3 py-1 my-2 mx-1 bg-yellow-300 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-yellow-200 active:bg-yellow-400 focus:outline-none focus:border-yellow-400 focus:shadow-outline-gray transition ease-in-out duration-150">
+                        <button @click="addToFavorite()" v-if="$page.user" class="inline-flex items-center px-3 py-1 my-2 mx-1 bg-yellow-300 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-yellow-200 active:bg-yellow-400 focus:outline-none focus:border-yellow-400 focus:shadow-outline-gray transition ease-in-out duration-150">
                             ★
                         </button>
                         <button v-if="$page.user" class="inline-flex mr-5 items-center px-3 py-1 my-2 mx-1 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red active:bg-red-600 transition ease-in-out duration-150">
@@ -86,6 +86,12 @@
         data () {
             return {
                 currentURL: window.location.href,
+                addFav: this.$inertia.form({
+                    '_method': 'PUT',
+                    post_slug: this.post.slug,
+                }, {
+                    bag: 'addFavorite',
+                }),
             }
         },
         props: ['post'],
@@ -93,6 +99,11 @@
             configDateTime(date) {
                 return this.$moment(date).startOf('second').locale('fr').fromNow()
             },
+            addToFavorite(){
+            this.addFav.put(route('addfavorite'), {
+                preserveScroll: true
+            })
+            }
         },
     }
 </script>

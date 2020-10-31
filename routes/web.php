@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\CitiesController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\FavoritesController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\SubCategoriesController;
@@ -61,6 +62,11 @@ Route::put('/modify/{post_slug}', [PostsController::class, 'update'])->name('upd
 //delete a post
 Route::delete('/your-post', [PostsController::class, 'destroy'])->name('destroy_post')->middleware(['auth:sanctum', 'verified']);
 
+//display favorites
+Route::get('/favorite', [FavoritesController::class, 'display'])->name('favorite')->middleware(['auth:sanctum', 'verified']);
+
+//add a favorite
+Route::put('/favorite', [FavoritesController::class, 'store'])->name('addfavorite')->middleware(['auth:sanctum', 'verified']);
 
 
 //get category page

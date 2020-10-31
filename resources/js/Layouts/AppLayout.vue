@@ -82,6 +82,10 @@
                                         Your Posts
                                     </jet-dropdown-link>
 
+                                    <jet-dropdown-link :href="route('favorite')">
+                                        Favorites
+                                    </jet-dropdown-link>
+
                                     <jet-dropdown-link :href="route('api-tokens.index')" v-if="$page.jetstream.hasApiFeatures">
                                         API Tokens
                                     </jet-dropdown-link>
@@ -186,6 +190,10 @@
 
                         <jet-responsive-nav-link :href="route('userPosts')">
                             Your Posts
+                        </jet-responsive-nav-link>
+
+                        <jet-responsive-nav-link :href="route('favorite')">
+                            Favorites
                         </jet-responsive-nav-link>
 
                         <jet-responsive-nav-link :href="route('api-tokens.index')" :active="$page.currentRouteName == 'api-tokens.index'" v-if="$page.jetstream.hasApiFeatures">
