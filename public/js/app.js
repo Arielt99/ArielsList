@@ -4420,6 +4420,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -5525,7 +5527,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#share > svg{\n  width: 80% !important;\n  height: 80% !important;\n  margin: auto;\n  margin-top: 10%;\n  margin-bottom: 10%;\n}\n#description{\n  min-height: 200px;\n}\n", ""]);
+exports.push([module.i, "#share > svg{\n  width: 80% !important;\n  height: 80% !important;\n  margin: auto;\n  margin-top: 10%;\n  margin-bottom: 10%;\n}\n#description{\n  min-height: 200px;\n  margin: auto;\n}\n", ""]);
 
 // exports
 
@@ -52350,6 +52352,38 @@ var render = function() {
                 [_vm._v(_vm._s(_vm.post.title))]
               ),
               _vm._v(" "),
+              _c("div", { staticClass: "flex justify-end" }, [
+                _vm.$page.user
+                  ? _c(
+                      "button",
+                      {
+                        staticClass:
+                          "inline-flex items-center px-3 py-1 my-2 mx-1 bg-yellow-300 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-yellow-200 active:bg-yellow-400 focus:outline-none focus:border-yellow-400 focus:shadow-outline-gray transition ease-in-out duration-150"
+                      },
+                      [
+                        _vm._v(
+                          "\n                        ★\n                    "
+                        )
+                      ]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.$page.user
+                  ? _c(
+                      "button",
+                      {
+                        staticClass:
+                          "inline-flex mr-5 items-center px-3 py-1 my-2 mx-1 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red active:bg-red-600 transition ease-in-out duration-150"
+                      },
+                      [
+                        _vm._v(
+                          "\n                        ✕\n                    "
+                        )
+                      ]
+                    )
+                  : _vm._e()
+              ]),
+              _vm._v(" "),
               _c("div", { staticClass: "px-8" }, [
                 _c("div", { staticClass: "flex justify-around pb-5" }, [
                   _c("p", { staticClass: "inline-flex items-center" }, [
@@ -52376,7 +52410,7 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "div",
-                  { staticClass: "flex flex-row justify-around pt-5" },
+                  { staticClass: "flex flex-row justify-around py-5" },
                   [
                     _c("p", { staticClass: "inline-flex items-center" }, [
                       _vm._v(
@@ -52417,33 +52451,7 @@ var render = function() {
                     )
                   ]
                 )
-              ]),
-              _vm._v(" "),
-              _vm.$page.user
-                ? _c(
-                    "button",
-                    {
-                      staticClass:
-                        "inline-flex ml-5 items-center px-3 py-1 my-2 mx-1 bg-yellow-300 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-yellow-200 active:bg-yellow-400 focus:outline-none focus:border-yellow-400 focus:shadow-outline-gray transition ease-in-out duration-150"
-                    },
-                    [
-                      _vm._v(
-                        "\n                    ajouter aux favoris\n                "
-                      )
-                    ]
-                  )
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.$page.user
-                ? _c(
-                    "button",
-                    {
-                      staticClass:
-                        "inline-flex items-center px-3 py-1 my-2 mx-1 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red active:bg-red-600 transition ease-in-out duration-150"
-                    },
-                    [_vm._v("\n                    masquer\n                ")]
-                  )
-                : _vm._e()
+              ])
             ]
           )
         ])

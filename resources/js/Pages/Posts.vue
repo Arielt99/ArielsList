@@ -35,6 +35,14 @@
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                     <h2 class="font-bold text-3xl text-gray-800 leading-tight text-center py-5 inline-block align-middle items-center w-full">{{post.title}}</h2>
+                    <div class="flex justify-end">
+                        <button v-if="$page.user" class="inline-flex items-center px-3 py-1 my-2 mx-1 bg-yellow-300 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-yellow-200 active:bg-yellow-400 focus:outline-none focus:border-yellow-400 focus:shadow-outline-gray transition ease-in-out duration-150">
+                            ★
+                        </button>
+                        <button v-if="$page.user" class="inline-flex mr-5 items-center px-3 py-1 my-2 mx-1 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red active:bg-red-600 transition ease-in-out duration-150">
+                            ✕
+                        </button>
+                    </div>
                     <div class="px-8">
                         <div class="flex justify-around pb-5">
                             <p class="inline-flex items-center">city : {{post.city.name}}</p>
@@ -42,7 +50,7 @@
                             <p class="inline-flex items-center">category : {{post.category.name}}</p>
                         </div>
                         <p id="description" class="h-auto inline-flex items-center">{{post.description}}</p>
-                        <div class="flex flex-row justify-around pt-5">
+                        <div class="flex flex-row justify-around py-5">
                             <p class="inline-flex items-center">posté par : {{post.user.name}} {{configDateTime(post.created_at)}}</p>
                             <p class="inline-flex items-center">dernière modification : {{configDateTime(post.updated_at)}}</p>
                             <div>
@@ -53,12 +61,6 @@
                             </div>
                         </div>
                     </div>
-                    <button v-if="$page.user" class="inline-flex ml-5 items-center px-3 py-1 my-2 mx-1 bg-yellow-300 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-yellow-200 active:bg-yellow-400 focus:outline-none focus:border-yellow-400 focus:shadow-outline-gray transition ease-in-out duration-150">
-                        ajouter aux favoris
-                    </button>
-                    <button v-if="$page.user" class="inline-flex items-center px-3 py-1 my-2 mx-1 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red active:bg-red-600 transition ease-in-out duration-150">
-                        masquer
-                    </button>
                 </div>
             </div>
 
@@ -105,5 +107,6 @@
 }
 #description{
     min-height: 200px;
+    margin: auto;
 }
 </style>
