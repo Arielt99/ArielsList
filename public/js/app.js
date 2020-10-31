@@ -4420,8 +4420,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 
 
@@ -5527,7 +5525,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#share > svg{\n  width: 80% !important;\n  height: 80% !important;\n  margin: auto;\n  margin-top: 10%;\n  margin-bottom: 10%;\n}\n", ""]);
+exports.push([module.i, "#share > svg{\n  width: 80% !important;\n  height: 80% !important;\n  margin: auto;\n  margin-top: 10%;\n  margin-bottom: 10%;\n}\n#description{\n  min-height: 200px;\n}\n", ""]);
 
 // exports
 
@@ -52347,86 +52345,105 @@ var render = function() {
                 "h2",
                 {
                   staticClass:
-                    "font-semibold text-xl text-gray-800 leading-tight text-center py-5 inline-block align-middle items-center w-full"
+                    "font-bold text-3xl text-gray-800 leading-tight text-center py-5 inline-block align-middle items-center w-full"
                 },
                 [_vm._v(_vm._s(_vm.post.title))]
               ),
               _vm._v(" "),
               _c("div", { staticClass: "px-8" }, [
-                _vm._v(
-                  "\n                    " +
-                    _vm._s(_vm.post.description) +
-                    "\n                    "
+                _c("div", { staticClass: "flex justify-around pb-5" }, [
+                  _c("p", { staticClass: "inline-flex items-center" }, [
+                    _vm._v("city : " + _vm._s(_vm.post.city.name))
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "inline-flex items-center" }, [
+                    _vm._v("category : " + _vm._s(_vm.post.category.name))
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "inline-flex items-center" }, [
+                    _vm._v("category : " + _vm._s(_vm.post.category.name))
+                  ])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "p",
+                  {
+                    staticClass: "h-auto inline-flex items-center",
+                    attrs: { id: "description" }
+                  },
+                  [_vm._v(_vm._s(_vm.post.description))]
                 ),
-                _c("br"),
-                _vm._v(
-                  "\n                    category : " +
-                    _vm._s(_vm.post.category.name) +
-                    "\n                    "
-                ),
-                _c("br"),
-                _vm._v(
-                  "\n                    subcategory : " +
-                    _vm._s(_vm.post.subcategory.name) +
-                    "\n                    "
-                ),
-                _c("br"),
-                _vm._v(
-                  "\n                    city : " +
-                    _vm._s(_vm.post.city.name) +
-                    "\n                    "
-                ),
-                _c("br"),
-                _vm._v(
-                  "\n                    posted by : " +
-                    _vm._s(_vm.post.user.name) +
-                    "\n                    " +
-                    _vm._s(_vm.configDateTime(_vm.post.created_at)) +
-                    "\n                    "
-                ),
-                _c("br"),
-                _vm._v(
-                  "\n                    last update : " +
-                    _vm._s(_vm.configDateTime(_vm.post.updated_at)) +
-                    "\n                "
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "flex flex-row justify-around pt-5" },
+                  [
+                    _c("p", { staticClass: "inline-flex items-center" }, [
+                      _vm._v(
+                        "posté par : " +
+                          _vm._s(_vm.post.user.name) +
+                          " " +
+                          _vm._s(_vm.configDateTime(_vm.post.created_at))
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "inline-flex items-center" }, [
+                      _vm._v(
+                        "dernière modification : " +
+                          _vm._s(_vm.configDateTime(_vm.post.updated_at))
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      [
+                        _c("share-facebook", {
+                          attrs: { id: "share", url: _vm.currentURL }
+                        }),
+                        _vm._v(" "),
+                        _c("share-twitter", {
+                          attrs: { id: "share", url: _vm.currentURL }
+                        }),
+                        _vm._v(" "),
+                        _c("share-google-plus", {
+                          attrs: { id: "share", url: _vm.currentURL }
+                        }),
+                        _vm._v(" "),
+                        _c("share-line", {
+                          attrs: { id: "share", url: _vm.currentURL }
+                        })
+                      ],
+                      1
+                    )
+                  ]
                 )
               ]),
               _vm._v(" "),
               _vm.$page.user
-                ? _c("button", [
-                    _vm._v(
-                      "\n                    ajouter aux favoris\n                "
-                    )
-                  ])
+                ? _c(
+                    "button",
+                    {
+                      staticClass:
+                        "inline-flex ml-5 items-center px-3 py-1 my-2 mx-1 bg-yellow-300 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-yellow-200 active:bg-yellow-400 focus:outline-none focus:border-yellow-400 focus:shadow-outline-gray transition ease-in-out duration-150"
+                    },
+                    [
+                      _vm._v(
+                        "\n                    ajouter aux favoris\n                "
+                      )
+                    ]
+                  )
                 : _vm._e(),
               _vm._v(" "),
               _vm.$page.user
-                ? _c("button", [
-                    _vm._v("\n                    masquer\n                ")
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _c(
-                "div",
-                [
-                  _c("share-facebook", {
-                    attrs: { id: "share", url: _vm.currentURL }
-                  }),
-                  _vm._v(" "),
-                  _c("share-twitter", {
-                    attrs: { id: "share", url: _vm.currentURL }
-                  }),
-                  _vm._v(" "),
-                  _c("share-google-plus", {
-                    attrs: { id: "share", url: _vm.currentURL }
-                  }),
-                  _vm._v(" "),
-                  _c("share-line", {
-                    attrs: { id: "share", url: _vm.currentURL }
-                  })
-                ],
-                1
-              )
+                ? _c(
+                    "button",
+                    {
+                      staticClass:
+                        "inline-flex items-center px-3 py-1 my-2 mx-1 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red active:bg-red-600 transition ease-in-out duration-150"
+                    },
+                    [_vm._v("\n                    masquer\n                ")]
+                  )
+                : _vm._e()
             ]
           )
         ])
