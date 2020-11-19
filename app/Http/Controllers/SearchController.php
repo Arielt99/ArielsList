@@ -11,7 +11,14 @@ class SearchController extends Controller
 {
     public function display($search_content)
     {
-        $posts = Post::where('title','like', '%'.$search_content.'%')->where('isActive',true)->with('subcategory','category','city', 'user')->get();
+        if(Auth::id()){
+            $posts = Post::whereDoesntHave('masked', function ($query) {
+                return $query->where('user_id', Auth::id());
+            })->where('title','like', '%'.$search_content.'%')->where('isActive',true)->with('subcategory','category','city', 'user')->orderBy('created_at','DESC')->get();
+        }else{
+            $posts = Post::where('title','like', '%'.$search_content.'%')->where('isActive',true)->with('subcategory','category','city', 'user')->orderBy('created_at','DESC')->get();
+        }
+
         return Inertia::render('Display', [
             'posts' => $posts,
             'search_content' =>$search_content,

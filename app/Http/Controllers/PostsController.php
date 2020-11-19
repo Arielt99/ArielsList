@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Categories;
 use App\Models\Cities;
 use App\Models\Favorites;
+use App\Models\Masked;
 use App\Models\Post;
 use App\Models\SubCategories;
 use Illuminate\Http\JsonResponse;
@@ -19,13 +20,32 @@ class PostsController extends Controller
     public function show($city_slug, $category_slug, $subcategory_slug, $post_slug)
     {
         $post = Post::where('slug',$post_slug)->where('city_slug', $city_slug)->where('category_slug', $category_slug)->where('subcategory_slug', $subcategory_slug)->with('subcategory','category','city','user')->first();
+
+        if(Favorites::where('user_id',Auth::id())->where('post_slug',$post_slug)->first() != null){
+            $isFavorite = true;
+
+        }else{
+            $isFavorite = false;
+        }
+
+        if(Masked::where('user_id',Auth::id())->where('post_slug',$post_slug)->first() != null){
+            $isMasked= true;
+
+        }else{
+            $isMasked = false;
+        }
+
         if($post->user_id == Auth::id()){
             return Inertia::render('Posts', [
                 'post' => $post,
+                'isFavorite' => $isFavorite,
+                'isMasked' => $isMasked,
             ]);
         }elseif($post->isActive==true){
             return Inertia::render('Posts', [
                 'post' => $post,
+                'isFavorite' => $isFavorite,
+                'isMasked' => $isMasked,
             ]);
         }
 
@@ -34,7 +54,7 @@ class PostsController extends Controller
 
     public function show_current()
     {
-        $posts = Post::where('user_id', Auth::id())->with('subcategory','category','city', 'user')->get();
+        $posts = Post::where('user_id', Auth::id())->with('subcategory','category','city', 'user')->orderBy('created_at','DESC')->get();
 
 
         return Inertia::render('PostManagement/UserDisplay', [
@@ -140,6 +160,8 @@ class PostsController extends Controller
         if(Auth::id() == $request->target_post['user_id']){
             Post::findOrFail($request->target_post['id'])->delete();
             Favorites::where('post_slug', $request->target_post['slug'])->delete();
+            Masked::where('post_slug', $request->target_post['slug'])->delete();
+
             return $request->wantsJson()
             ? new JsonResponse('', 200)
             : back()->with('status', 'post deleted');

@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\CitiesController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\FavoritesController;
+use App\Http\Controllers\MaskedController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\SubCategoriesController;
@@ -62,12 +63,17 @@ Route::put('/modify/{post_slug}', [PostsController::class, 'update'])->name('upd
 //delete a post
 Route::delete('/your-post', [PostsController::class, 'destroy'])->name('destroy_post')->middleware(['auth:sanctum', 'verified']);
 
+//favorites gestion
 //display favorites
 Route::get('/favorite', [FavoritesController::class, 'display'])->name('favorite')->middleware(['auth:sanctum', 'verified']);
-
 //add a favorite
 Route::put('/favorite', [FavoritesController::class, 'store'])->name('addfavorite')->middleware(['auth:sanctum', 'verified']);
 
+//maskeds gestion
+//display maskeds
+Route::get('/masked', [MaskedController::class, 'display'])->name('masked')->middleware(['auth:sanctum', 'verified']);
+//add a masked
+Route::put('/masked', [MaskedController::class, 'store'])->name('addmasked')->middleware(['auth:sanctum', 'verified']);
 
 //get category page
 Route::get('/{city_slug}', [CitiesController::class, 'display'])->name('city')->middleware(CityExistence::class);
@@ -77,25 +83,3 @@ Route::get('/{city_slug}', [CitiesController::class, 'display'])->name('city')->
 Route::get('/{city_slug}/{category_slug}', [CategoriesController::class, 'display'])->name('category')->middleware(CityExistence::class, CategoryExistence::class);
 //the city, category and subcategory
 Route::get('/{city_slug}/{category_slug}/{subcategory_slug}', [SubCategoriesController::class, 'display'])->name('subcategory')->middleware(CityExistence::class, CategoryExistence::class,SubCategoryExistence::class);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//waiting for solution
-if (Features::enabled(Features::updateProfileInformation())) {
-    Route::put('/user/update-default-city', [UserDefaultCityController::class, 'update'])
-        ->middleware(['auth'])
-        ->name('/user/update-default-city');
-}

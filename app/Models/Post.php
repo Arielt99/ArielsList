@@ -58,11 +58,19 @@ class Post extends Model
     }
 
     /**
-     * get the subcategory
+     * get the favorites
      */
     public function favorite()
     {
         return $this->hasMany('App\Models\Favorites', 'post_slug', 'slug');
+    }
+
+    /**
+     * get the masked
+     */
+    public function masked()
+    {
+        return $this->hasMany('App\Models\Masked', 'post_slug', 'slug');
     }
 
     /**

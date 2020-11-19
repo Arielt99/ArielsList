@@ -41,6 +41,14 @@
                         Vos favoris
                     </jet-nav-link>
                 </div>
+                <div v-if="route_name == 'masked'">
+                    <span class="inline-flex items-center">
+                        >
+                    </span>
+                    <jet-nav-link :href="route('masked')">
+                        Vos annonces masquées
+                    </jet-nav-link>
+                </div>
             </h2>
         </template>
 

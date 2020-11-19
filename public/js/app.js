@@ -3234,6 +3234,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -3734,6 +3742,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
 /* harmony import */ var _Jetstream_NavLink__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../Jetstream/NavLink */ "./resources/js/Jetstream/NavLink.vue");
 /* harmony import */ var _Components_PostCard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../Components/PostCard */ "./resources/js/Components/PostCard.vue");
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -4442,6 +4458,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -4465,16 +4487,27 @@ __webpack_require__.r(__webpack_exports__);
         post_slug: this.post.slug
       }, {
         bag: 'addFavorite'
+      }),
+      addMask: this.$inertia.form({
+        '_method': 'PUT',
+        post_slug: this.post.slug
+      }, {
+        bag: 'addMasked'
       })
     };
   },
-  props: ['post'],
+  props: ['post', 'isFavorite', 'isMasked'],
   methods: {
     configDateTime: function configDateTime(date) {
       return this.$moment(date).startOf('second').locale('fr').fromNow();
     },
     addToFavorite: function addToFavorite() {
       this.addFav.put(route('addfavorite'), {
+        preserveScroll: true
+      });
+    },
+    addToMasked: function addToMasked() {
+      this.addMask.put(route('addmasked'), {
         preserveScroll: true
       });
     }
@@ -49253,6 +49286,16 @@ var render = function() {
                                       ]
                                     ),
                                     _vm._v(" "),
+                                    _c(
+                                      "jet-dropdown-link",
+                                      { attrs: { href: _vm.route("masked") } },
+                                      [
+                                        _vm._v(
+                                          "\n                                    Maskeds\n                                "
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
                                     _vm.$page.jetstream.hasApiFeatures
                                       ? _c(
                                           "jet-dropdown-link",
@@ -49463,7 +49506,7 @@ var render = function() {
                             ],
                             null,
                             false,
-                            3228157247
+                            3442334678
                           )
                         })
                       ],
@@ -49647,6 +49690,16 @@ var render = function() {
                           [
                             _vm._v(
                               "\n                        Favorites\n                    "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "jet-responsive-nav-link",
+                          { attrs: { href: _vm.route("masked") } },
+                          [
+                            _vm._v(
+                              "\n                        Maskeds\n                    "
                             )
                           ]
                         ),
@@ -50942,6 +50995,34 @@ var render = function() {
                             [
                               _vm._v(
                                 "\n                    Vos favoris\n                "
+                              )
+                            ]
+                          )
+                        ],
+                        1
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.route_name == "masked"
+                    ? _c(
+                        "div",
+                        [
+                          _c(
+                            "span",
+                            { staticClass: "inline-flex items-center" },
+                            [
+                              _vm._v(
+                                "\n                    >\n                "
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "jet-nav-link",
+                            { attrs: { href: _vm.route("masked") } },
+                            [
+                              _vm._v(
+                                "\n                    Vos annonces masquées\n                "
                               )
                             ]
                           )
@@ -52439,12 +52520,12 @@ var render = function() {
               ),
               _vm._v(" "),
               _c("div", { staticClass: "flex justify-end" }, [
-                _vm.$page.user
+                _vm.$page.user && _vm.isFavorite == true
                   ? _c(
                       "button",
                       {
                         staticClass:
-                          "inline-flex items-center px-3 py-1 my-2 mx-1 bg-yellow-300 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-yellow-200 active:bg-yellow-400 focus:outline-none focus:border-yellow-400 focus:shadow-outline-gray transition ease-in-out duration-150",
+                          "inline-flex items-center px-3 py-1 my-2 mx-1 bg-yellow-300 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-yellow-200 active:bg-yellow-400 focus:outline-none focus:border-yellow-400 transition ease-in-out duration-150",
                         on: {
                           click: function($event) {
                             return _vm.addToFavorite()
@@ -52453,22 +52534,67 @@ var render = function() {
                       },
                       [
                         _vm._v(
-                          "\n                        ★\n                    "
+                          "\n                            ★\n                        "
                         )
                       ]
                     )
                   : _vm._e(),
                 _vm._v(" "),
-                _vm.$page.user
+                _vm.$page.user && _vm.isFavorite == false
                   ? _c(
                       "button",
                       {
                         staticClass:
-                          "inline-flex mr-5 items-center px-3 py-1 my-2 mx-1 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red active:bg-red-600 transition ease-in-out duration-150"
+                          "inline-flex items-center text-yellow-300 px-3 py-1 my-2 mx-1 bg-transparent border border-yellow-300 rounded-md font-semibold text-xs uppercase tracking-widest hover:bg-yellow-50 active:bg-yellow-100 focus:outline-none focus:border-yellow-400 transition ease-in-out duration-150",
+                        on: {
+                          click: function($event) {
+                            return _vm.addToFavorite()
+                          }
+                        }
                       },
                       [
                         _vm._v(
-                          "\n                        ✕\n                    "
+                          "\n                            +★\n                        "
+                        )
+                      ]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.$page.user && _vm.isMasked == true
+                  ? _c(
+                      "button",
+                      {
+                        staticClass:
+                          "inline-flex mr-5 items-center px-3 py-1 my-2 mx-1 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 focus:outline-none focus:border-red-700 active:bg-red-600 transition ease-in-out duration-150",
+                        on: {
+                          click: function($event) {
+                            return _vm.addToMasked()
+                          }
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n                            Démasquer\n                        "
+                        )
+                      ]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.$page.user && _vm.isMasked == false
+                  ? _c(
+                      "button",
+                      {
+                        staticClass:
+                          "inline-flex mr-5 items-center px-3 py-1 my-2 mx-1 bg-transparent border border-red-600 rounded-md font-semibold text-xs text-red-600 uppercase tracking-widest hover:bg-red-50 focus:outline-none focus:border-red-700 active:bg-red-100 transition ease-in-out duration-150",
+                        on: {
+                          click: function($event) {
+                            return _vm.addToMasked()
+                          }
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n                            Masquer\n                        "
                         )
                       ]
                     )
@@ -52486,7 +52612,7 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("p", { staticClass: "inline-flex items-center" }, [
-                    _vm._v("category : " + _vm._s(_vm.post.category.name))
+                    _vm._v("subcategory : " + _vm._s(_vm.post.subcategory.name))
                   ])
                 ]),
                 _vm._v(" "),

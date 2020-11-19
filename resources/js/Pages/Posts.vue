@@ -36,18 +36,24 @@
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                     <h2 class="font-bold text-3xl text-gray-800 leading-tight text-center py-5 inline-block align-middle items-center w-full">{{post.title}}</h2>
                     <div class="flex justify-end">
-                        <button @click="addToFavorite()" v-if="$page.user" class="inline-flex items-center px-3 py-1 my-2 mx-1 bg-yellow-300 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-yellow-200 active:bg-yellow-400 focus:outline-none focus:border-yellow-400 focus:shadow-outline-gray transition ease-in-out duration-150">
-                            ★
-                        </button>
-                        <button v-if="$page.user" class="inline-flex mr-5 items-center px-3 py-1 my-2 mx-1 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red active:bg-red-600 transition ease-in-out duration-150">
-                            ✕
-                        </button>
+                            <button @click="addToFavorite()" v-if="$page.user && isFavorite == true" class="inline-flex items-center px-3 py-1 my-2 mx-1 bg-yellow-300 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-yellow-200 active:bg-yellow-400 focus:outline-none focus:border-yellow-400 transition ease-in-out duration-150">
+                                ★
+                            </button>
+                            <button @click="addToFavorite()" v-if="$page.user && isFavorite == false" class="inline-flex items-center text-yellow-300 px-3 py-1 my-2 mx-1 bg-transparent border border-yellow-300 rounded-md font-semibold text-xs uppercase tracking-widest hover:bg-yellow-50 active:bg-yellow-100 focus:outline-none focus:border-yellow-400 transition ease-in-out duration-150">
+                                +★
+                            </button>
+                            <button @click="addToMasked()" v-if="$page.user && isMasked == true" class="inline-flex mr-5 items-center px-3 py-1 my-2 mx-1 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 focus:outline-none focus:border-red-700 active:bg-red-600 transition ease-in-out duration-150">
+                                Démasquer
+                            </button>
+                            <button @click="addToMasked()" v-if="$page.user && isMasked == false" class="inline-flex mr-5 items-center px-3 py-1 my-2 mx-1 bg-transparent border border-red-600 rounded-md font-semibold text-xs text-red-600 uppercase tracking-widest hover:bg-red-50 focus:outline-none focus:border-red-700 active:bg-red-100 transition ease-in-out duration-150">
+                                Masquer
+                            </button>
                     </div>
                     <div class="px-8">
                         <div class="flex justify-around pb-5">
                             <p class="inline-flex items-center">city : {{post.city.name}}</p>
                             <p class="inline-flex items-center">category : {{post.category.name}}</p>
-                            <p class="inline-flex items-center">category : {{post.category.name}}</p>
+                            <p class="inline-flex items-center">subcategory : {{post.subcategory.name}}</p>
                         </div>
                         <p id="description" class="h-auto inline-flex items-center">{{post.description}}</p>
                         <div class="flex flex-row justify-around py-5">
@@ -94,17 +100,28 @@
                 }, {
                     bag: 'addFavorite',
                 }),
+                addMask: this.$inertia.form({
+                    '_method': 'PUT',
+                    post_slug: this.post.slug,
+                }, {
+                    bag: 'addMasked',
+                }),
             }
         },
-        props: ['post'],
+        props: ['post', 'isFavorite', 'isMasked'],
         methods:{
             configDateTime(date) {
                 return this.$moment(date).startOf('second').locale('fr').fromNow()
             },
             addToFavorite(){
-            this.addFav.put(route('addfavorite'), {
-                preserveScroll: true
-            })
+                this.addFav.put(route('addfavorite'), {
+                    preserveScroll: true
+                })
+            },
+            addToMasked(){
+                this.addMask.put(route('addmasked'), {
+                    preserveScroll: true
+                })
             }
         },
     }
